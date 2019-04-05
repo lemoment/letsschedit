@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "parcel index.html",
     "lint": "eslint --ext .js,.vue src",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html -d ../dist/"
   },
   "keywords": [],
   "license": "ISC",
@@ -19,6 +19,7 @@
   "devDependencies": {
     "@vue/component-compiler-utils": "^2.6.0",
     "babel-eslint": "^8.2.1",
+    "cssnano": "^4.1.10",
     "eslint": "^4.15.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-friendly-formatter": "^3.0.0",
@@ -28,7 +29,7 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^4.0.0",
-    "parcel-bundler": "^1.7.0",
+    "parcel-bundler": "^1.12.3",
     "vue-template-compiler": "^2.6.10"
   }
 }
