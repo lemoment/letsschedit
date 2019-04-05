@@ -5,7 +5,7 @@ app = Flask(__name__)
 def hello_world():
     return 'Hello World!'
 
-# more routes here!
+# more end points here!
 
 if __name__ == '__main__':
     app.run()
