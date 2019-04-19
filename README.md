@@ -3,6 +3,9 @@ A free service which helps you find the best time for a group to meet, convenien
 
 Created by Riya Aggarwal, Elias Gabriel, Maalvika Bhat, and Dieter Brehm.
 
+
+![Mockup](documentation/Mockups/Desktop-Home-LeavesHalf.png)
+
 ## Installation and Setup 
 You can setup the server component by running
 `cd backend`, then `pip install -r requirements.txt` to install required libraries which are:  
