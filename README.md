@@ -9,13 +9,13 @@ You can setup the server component by running
 
 #### Backend - Deps
 * Flask  
-* Requires,  
+* Requires  
 
 #### Frontend - Deps 
 * vue js  
 * eslint  
 * babel  
-* parcel,  
+* parcel  
 
 The front end can be setup by running
 `cd frontend`, then `npm install`
