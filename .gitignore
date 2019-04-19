@@ -275,3 +275,5 @@ npm-debug.log
 yarn-error.log
 
 # End of https://www.gitignore.io/api/node,vuejs,flask,python
+
+/documentation/private.key
