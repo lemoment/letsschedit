@@ -26,5 +26,5 @@ The front end can be setup by running
 `cd source/web`, then `npm install`
 
 ## Usage  
-* For the frontend: `parcel serve index.html`  
+* For the frontend: `npm run dev`  
 * For the backend: `python app.py`
