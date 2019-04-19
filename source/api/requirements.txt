@@ -1,4 +1,0 @@
-flask
-Flask-RESTful
-python-dotenv
-peewee
