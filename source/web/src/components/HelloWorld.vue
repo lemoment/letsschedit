@@ -1,86 +1,12 @@
 <template>
-  <div class="hello">
-	<h1>{{ msg }}</h1>
-	<h2>Essential Links</h2>
-	<ul>
-	  <li>
-		<a
-		  href="https://vuejs.org"
-		  target="_blank"
-		>
-		  Core Docs
-		</a>
-	  </li>
-	  <li>
-		<a
-		  href="https://forum.vuejs.org"
-		  target="_blank"
-		>
-		  Forum
-		</a>
-	  </li>
-	  <li>
-		<a
-		  href="https://chat.vuejs.org"
-		  target="_blank"
-		>
-		  Community Chat
-		</a>
-	  </li>
-	  <li>
-		<a
-		  href="https://twitter.com/vuejs"
-		  target="_blank"
-		>
-		  Twitter
-		</a>
-	  </li>
-	  <br>
-	  <li>
-		<a
-		  href="http://vuejs-templates.github.io/webpack/"
-		  target="_blank"
-		>
-		  Docs for This Template
-		</a>
-	  </li>
-	</ul>
-	<h2>Ecosystem</h2>
-	<ul>
-	  <li>
-		<a
-		  href="http://router.vuejs.org/"
-		  target="_blank"
-		>
-		  vue-router
-		</a>
-	  </li>
-	  <li>
-		<a
-		  href="http://vuex.vuejs.org/"
-		  target="_blank"
-		>
-		  vuex
-		</a>
-	  </li>
-	  <li>
-		<a
-		  href="http://vue-loader.vuejs.org/"
-		  target="_blank"
-		>
-		  vue-loader
-		</a>
-	  </li>
-	  <li>
-		<a
-		  href="https://github.com/vuejs/awesome-vue"
-		  target="_blank"
-		>
-		  awesome-vue
-		</a>
-	  </li>
-	</ul>
-  </div>
+<div class="container">
+      <header class="page-header">
+      </header>
+      <div class="page-content">
+        <h1 class="title">WHEN2MEET</h1>
+        <h2 class="title">IS CHANGING</h2>
+     </div>
+    </div>
 </template>
 
 <script>
@@ -95,19 +21,80 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
+<style>
+@keyframes colorchange
+    {
+        0%   {background: #009bdf;}
+        25%  {background: #00aa69;}
+        50%  {background: #cf128c;}
+        75% {background: #ffd400;}
+        90%   {background: #999999;}
+        100%   {background: #009bdf;}
+    }
+
+@-webkit-keyframes colorchange
+    {
+        0%   {background: #009bdf;}
+        25%  {background: #00aa69;}
+        50%  {background: #cf128c;}
+        75% {background: #ffd400;}
+        90%   {background: #999999;}
+        100%   {background: #009bdf;}
+    }
+
+html {
+    animation: colorchange 20s infinite;
+    -webkit-animation: colorchange 20s infinite;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    /* background-color: #3D3D3D; */
+    color: rgb(255, 255, 255);
 }
-ul {
-  list-style-type: none;
+html,
+body {
+  height: 100%;
+  margin: 0;
   padding: 0;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+.logo {
+    height: 5rem;
+    padding-top: 20px;
+    padding-left: 20px;
 }
-a {
-  color: #42b983;
+h1 {
+    font-size: 9rem;
+		text-align: left;  
+		font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    /* background-color: #3D3D3D; */
+		color: rgb(255, 255, 255); 
+		padding-left: 20px;
+}
+h2 {
+    font-size: 5rem;
+		text-align: left;   
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 700;
+		padding-left: 20px;
+    /* background-color: #3D3D3D; */
+    color: rgb(255, 255, 255);
+}
+
+p {
+  text-align: center;
+  margin-top:-40px;
+}
+.title {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.date {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    
+}
+.lead {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 </style>
