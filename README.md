@@ -6,7 +6,7 @@ A free service which helps you find the best time for a group to meet, convenien
 Created by Riya Aggarwal, Elias Gabriel, Maalvika Bhat, and Dieter Brehm.
 
 
-## Installation and Setup 
+## Installation & Setup 
 ![AR Diagram](documentation/ARDiagram.png)
 
 You can setup the server component by running
