@@ -62,7 +62,7 @@ body {
     padding-left: 20px;
 }
 h1 {
-    font-size: 20rem;
+    font-size: 9rem;
 		text-align: left;  
 		font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -71,7 +71,7 @@ h1 {
 		padding-left: 20px;
 }
 h2 {
-    font-size: 15rem;
+    font-size: 5rem;
 		text-align: left;   
 		font-family: 'Montserrat', sans-serif;
 		font-weight: 700;
