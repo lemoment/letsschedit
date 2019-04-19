@@ -1,8 +1,8 @@
 {
-  "name": "when2meet2",
+  "name": "letsschedit",
   "version": "1.0.0",
-  "description": "Olin's upcoming When2Meet alternative",
-  "author": "",
+  "description": "A free service which helps you find the best time for a group to meet, conveniently.",
+  "author": "Dieter Brehm, Elias Gabriel, Riya Aggarwal, Maalvika Bhat",
   "private": true,
   "scripts": {
     "dev": "parcel index.html",
@@ -14,7 +14,7 @@
   "dependencies": {
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.3",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.6"
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^2.6.0",
@@ -24,7 +24,7 @@
     "eslint-config-standard": "^10.2.1",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-node": "^5.2.0",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^3.0.1",
