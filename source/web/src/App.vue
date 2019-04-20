@@ -1,11 +1,19 @@
 <template>
   <div id="app">
-    <HelloWorld/>
+    <div id="nav">
+      <router-link to="/">Home</router-link>
+      <router-link to="create-event">create-event</router-link>
+      <router-link to="cal">cal</router-link>
+    </div>
+    <div class="container">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld'
+import Vue from 'vue'
 
 export default {
   name: 'App',
@@ -16,12 +24,4 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
