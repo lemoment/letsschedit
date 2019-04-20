@@ -6,7 +6,7 @@ A free service which helps you find the best time for a group to meet, convenien
 Created by Riya Aggarwal, Elias Gabriel, Maalvika Bhat, and Dieter Brehm.
 
 
-## Installation & Setup 
+## Installation & Setup
 ![AR Diagram](documentation/ARDiagram.png)
 
 You can setup the server component by running
@@ -26,5 +26,5 @@ The front end can be setup by running
 `cd source/web`, then `npm install`
 
 ## Usage  
-* For the frontend: `npm run dev`  
-* For the backend: `python app.py`
+* For the frontend: run `cd source/web` and then `npm run dev`  
+* For the backend:  run `cd source/api` and then `python app.py`
