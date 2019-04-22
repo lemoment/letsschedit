@@ -4,7 +4,7 @@
 A free service which helps you find the best time for a group to meet, conveniently and automatically.
 
 ## Installation & Setup
-To setup the development, follow the directions below for the applications you want to install.
+To setup the development environments, follow the directions below for the applications you want to install.
 
 ### Web Server
 **Node.js Requirements:**
