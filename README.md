@@ -13,7 +13,7 @@ To setup the development, follow the directions below for the applications you w
 * babel
 * parcel
 
-To install the required Node.js packages, you can simply run `npm install -r ./source/api/requirements.txt`.
+To install the required Node.js packages, you can simply run `cd ./source/api && npm install`.
 
 ### RESTful API Server
 **Python Requirements:**
@@ -36,7 +36,7 @@ MariaDB is also required to run this application. Installation varies depending 
 
 ## Usage
 You can start the frontend or backend servers by changing into the appropriate directory and launching the application with the correct program.
-* Frontend: `cd source/web && npm run dev`
+* Frontend: `npm run dev`
 * Backend: `cd source/api && python app.py`
 
 ## Structure
