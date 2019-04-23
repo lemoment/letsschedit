@@ -3,20 +3,18 @@
       <header class="page-header">
       </header>
       <div>
-         <h1 class="title"   >LET'S<br />SCHED<br />IT.</h1>
+         <h1 class="title" style="line-height:120px" >LET'S<br />SCHED<br />IT.</h1>
          <h2 class="title2" >Create Event</h2>
-       </div>
        <div class="page-content" style="margin-bottom: 10px">
            <form class="form-inline">
-             <button type="submit" style="align-self: flex-end; display:block;">Login with Google</button>
+             <button type="submit" >Login with Google</button>
               <br />
-              <button type="submit" style="align-self: flex-end; display:block;">Login with Outlook</button>
+              <button type="submit" >Login with Outlook</button>
            </form>
            <div class="footer">
               <hr>
-              <h3 style="margin-bottom: 20px" text-align: left >Built<br />with ❤️ <br />by Oliners</h1>
-            </div>
-        </div>
+              <h3 style="margin-bottom: 10px" style="align-self: flex-left;" >Built<br />with ❤️ <br />by Oliners</h1>
+           </div>
        </div>
    </template>
 
@@ -38,10 +36,10 @@ body {
   padding: 0;
 }
 .page-content{
-  background-color:#e5e5e5;
+  background-color:#FFFFFF;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 20px;
   align-items: left;
 }
@@ -52,7 +50,7 @@ h1 {
     font-weight: 600;
 		color: #000000;
 		padding-left: 30px;
-    margin-top: 10px;
+    padding-top: 20px;
 }
 h2 {
     font-size: 2rem;
@@ -80,17 +78,20 @@ p {
   color: #000000;
 }
 hr {
-  margin-top: 2em;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 4em;
+  margin-left: 10px;
+  margin-right: 650px;
   text-align: left;
   border-style: inset;
   border-width: 2px;
   color: #000000;
+  display: flex;
+  justify-content: flex-end;
 }
 .form-inline {
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: column;
+  justify-content: flex-start;
  }
 
 .form-inline label {
@@ -113,11 +114,15 @@ hr {
   border-radius: 10px;
   background-color: #FFFFFF;
   cursor: pointer;
-  margin-top: 15px;
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: -10px;
+  display: block;
   font-size: 2rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   color: #000000;
+  align-self: flex-end;
 }
 .form-inline button:hover {
   background-color: #C0C0C0;
