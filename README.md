@@ -32,6 +32,7 @@ MariaDB is also required to run this application. Installation varies depending 
   $ pacman -S mariadb
   $ mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
   $ '/usr/bin/mysql_secure_installation'
+  $ systemctl start mariadb.service
 ```
 
 ## Usage
