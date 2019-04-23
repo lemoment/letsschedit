@@ -32,7 +32,7 @@
 </template>
 
 <!-- CSS -->
-<style>
+<style scoped>
 html {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
