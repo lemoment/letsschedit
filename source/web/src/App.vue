@@ -8,20 +8,14 @@
     <div class="container">
       <router-view></router-view>
     </div>
-     <CreateEvent/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
 import Vue from 'vue'
-import CreateEvent from './components/CreateEvent'
 
 export default {
   name: 'App',
-  components: {
-    CreateEvent
-  }
 }
 </script>
 
