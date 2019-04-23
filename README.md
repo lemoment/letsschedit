@@ -7,7 +7,7 @@ Created by Riya Aggarwal, Elias Gabriel, Maalvika Bhat, and Dieter Brehm.
 
 
 ## Installation & Setup
-![AR Diagram](documentation/ARDiagram.png)
+![AR Diagram](documentation/arch-diagram_20190409.png)
 
 You can setup the server component by running
 `cd source/api`, then `pip install -r requirements.txt` to install required libraries which are:  
