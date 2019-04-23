@@ -8,20 +8,24 @@
       </div>
 
       <div class="page-content">
-        <form class="form-inline"> 
-          <label for="name">Create an event named</label>
-          <input type="text" id="name" name="name" placeholder="Name">
-          <label for="startDate">on</label>
-          <input type="text" id="startDate" name="startDate" placeholder="Start Date">
-          <label for="startDate">to</label>
-          <input type="text" id="endDate" name="endDate" placeholder="End Date">
-          <label for="startTime">from</label>
-          <input type="text" id="startTime" name="startTime" placeholder="Start Time">
-          <label for="endTime">to</label>
-          <input type="text" id="endTime" name="endTime" placeholder="End Time">
-          <label>.</label>
-          <button type="submit" style="align-self: flex-end; display:block;">
-           SCHED IT!</button>
+        <form class="form"> 
+          <div class="form-inline">
+            <label for="name">Create an event named</label>
+            <input type="text" id="name" name="name" placeholder="Name">
+            <label for="startDate">on</label>
+            <input type="text" id="startDate" name="startDate" placeholder="Start Date">
+            <label for="startDate">to</label>
+            <input type="text" id="endDate" name="endDate" placeholder="End Date">
+            <label for="startTime">from</label>
+            <input type="text" id="startTime" name="startTime" placeholder="Start Time">
+            <label for="endTime">to</label>
+            <input type="text" id="endTime" name="endTime" placeholder="End Time">
+            <label>.</label>
+          </div>
+          <div class="jump">
+            <button class="sched-er" type="submit" style="align-self: flex-end; display:block;">
+            SCHED IT!</button>
+          </div>
         </form>
      </div>
     </div>
@@ -89,6 +93,10 @@ p {
   display: flex;
   flex-flow: row wrap;
  }
+ .form {
+   display: flex;
+   flex-flow: column;
+ }
 .form-inline input {
   padding: 3px 0 3px 0;
   margin: 5px 10px 5px 10px;
@@ -115,13 +123,12 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  align-content: 
 }
 .form-inline ::placeholder {
   color: #bab4b4;
   font-weight: normal;
 }
-.form-inline button {
+.sched-er {
   border: 2px solid #52BDDF;
   box-sizing: border-box;
   border-radius: 10px;
@@ -133,7 +140,7 @@ p {
   color: #52BDDF;
 
 }
-.form-inline button:hover {
+.sched-er :hover {
   background-color: #52BDDF;
   color: #FFFFFF;
 }
