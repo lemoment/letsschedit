@@ -12,14 +12,10 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
 import Vue from 'vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
 }
 </script>
 
