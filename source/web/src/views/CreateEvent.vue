@@ -23,8 +23,7 @@
             <label>.</label>
           </div>
           <div class="jump">
-            <button class="sched-er" type="submit" style="align-self: flex-end; display:block;">
-            SCHED IT!</button>
+            <button class="button" type="submit" style="display:block;">SCHED IT!</button>
           </div>
         </form>
      </div>
@@ -116,7 +115,7 @@ p {
   font-size: 3rem;
   text-align: center;
   text-align: left;
-  padding-left: 10px;
+  padding: 0 10 0 10;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   color: #000000;
@@ -128,7 +127,7 @@ p {
   color: #bab4b4;
   font-weight: normal;
 }
-.sched-er {
+.button {
   border: 2px solid #52BDDF;
   box-sizing: border-box;
   border-radius: 10px;
@@ -138,20 +137,15 @@ p {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   color: #52BDDF;
-
+  margin-top: 2rem;
 }
-.sched-er :hover {
+.button:hover {
   background-color: #52BDDF;
   color: #FFFFFF;
 }
 .title {
     margin-top: 0px;
     margin-bottom: 0px;
-}
-.date {
-    margin-top: 0px;
-    margin-bottom: 0px;
-
 }
 #logo {
   padding-left: 30px;
