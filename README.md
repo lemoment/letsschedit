@@ -43,24 +43,22 @@ After three short steps, the user is able to send out the event to all participa
 ## Implementation Details  
   
 We were inspired by the functionality of When2Meet, a website that helps you find the best time for a group to meet. We appreciated the compactness, so events could be created and accessed quickly, but did not like the user interface, the way the website worked on a mobile device, and how you had to enter your schedule every time you were sent a When2Meet, we decided to set out to create our own platform.   
-<insert old site photo>  
+![old-site](documentation/when2meetscreenshot.png)   
 
 When we first discussed how we wanted to change When2Meet, we wanted users to be able to sync calendars with Google and Outlook as well as be able to edit calendars. Soon, we realized that we could start with being able to import calendars and add in manual entry feature afterward. We collaborated to design UI in Figma, and ran through several iterations before deciding on a homepage.  
 
 This is what one of our first iterations of the homepage looked like. We only had an ‘Event Name’ button and a button to press to create the event.  
-<first iteration>  
+![iteration-1](documentation/iteration1.png)  
 Eventually, we decided on a different style of the homepage with only the options to login with Google or Outlook, which looked like this:  
-<second iteration> 
+![iteration-2](documentation/iterationcal.png)   
 We were going to have sync options for the first time on the calendar page, but after our first Architectural Review and several group discussions, we decided to present the calendar differently.  
-<cal views>  
+![cal](documentation/finalcreateevent.png)  
+
 After learning what users wanted in the mobile view of the app, we decided to have a toggle of sorts to move back and forth between one's personal calendar and the group calendar view.  
-<mobile views>   
+![iteration-2](documentation/mobilecal.png)  
   
 ## Privacy and Impact of Software
 The primary source of possible ethical dilemmas we had to be cautious about in this project is privacy and user data handling. While we made an attempt to mitigate this potential issue by modeling our system to be calendar centric instead of user-centric, we do acknowledge that we collect users’ free time blocks through Google and Outlook API’s. The process of logging into the app does, however, clearly indicate the permissions and information being given to us through Google and Outlook.    
-  
-## Our Journey  
-
   
 ## Attribution   
   
