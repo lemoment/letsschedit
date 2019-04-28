@@ -36,7 +36,7 @@ Let’s walk through a typical event creator’s path using Let’s Sched It.
 First, they are greeted by our homepage:  
 ![Desktop-view](documentation/mockups/Desktop-Home-LeavesHalf.png)  
 After logging in, the user then enters details about the name, date and time of the event they are creating in a nice, easy-to-consume format.  
-![create-view](documentation/Mockups/Desktop-CreateEvent.png)  
+![create-view](documentation/create-view.png)  
 Next, it’s time to visualize the user’s schedule, imported from their account of choice:  
 ![cal-view-group](documentation/mockups/Desktop-Calendar-Group.png)  
 After three short steps, the user is able to send out the event to all participating members, and wait for the responses to roll in before setting a meeting time. That’s how we Sched It!  
