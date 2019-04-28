@@ -1,4 +1,4 @@
-<img src="/documentation/logo.svg" width="128">
+<img src="/documentation/logo_20190419.png" width="128">
 
 # Let's Sched It
 A free service which helps you find the best time for a group to meet, conveniently.
