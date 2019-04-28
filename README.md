@@ -3,7 +3,7 @@ We wanted to make scheduling easier. So we created Let’s Sched It, a free serv
 
 Consider a situation where a student is working on a team project and needs to coordinate with their classmates. The group all has their calendars setup using a service like Google Calendars but has been texting back and forth sharing their free times, only to get lost in the fray. Enter Let’s Sched It, which allows lets people schedule meeting with only a calendar link and a quick click to log in.
 
-![Mockup](documentation/Mockups/Desktop-Home-LeavesHalf.png)
+![Mockup](documentation/mockups/Desktop-Home-LeavesHalf.png)
 
 > Created by Elias Gabriel, Maalvika Bhat, Dieter Brehm, and Riya Aggarwal.
 
@@ -34,11 +34,11 @@ You can start the frontend or backend servers by changing into the appropriate d
 ## Demo
 Let’s walk through a typical event creator’s path using Let’s Sched It.
 First, they are greeted by our homepage:  
-![Desktop-view](documentation/Mockups/Desktop-Home-LeavesHalf.png)  
+![Desktop-view](documentation/mockups/Desktop-Home-LeavesHalf.png)  
 After logging in, the user then enters details about the name, date and time of the event they are creating in a nice, easy-to-consume format.  
 ![create-view](documentation/Mockups/Desktop-CreateEvent.png)  
 Next, it’s time to visualize the user’s schedule, imported from their account of choice:  
-![cal-view-group](documentation/Mockups/Desktop-Calendar-Group.png)  
+![cal-view-group](documentation/mockups/Desktop-Calendar-Group.png)  
 After three short steps, the user is able to send out the event to all participating members, and wait for the responses to roll in before setting a meeting time. That’s how we Sched It!  
 
 
