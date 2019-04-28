@@ -4,9 +4,10 @@ Hosts the main application, routing endpoints to their desired controller.
 @author: Elias Gabriel
 @revision: v1.0
 """
-from flask import Flask
-from core import RESTfulServer
-from playhouse.pool import PooledMySQLDatabase
+from os import getenv as env
+from flask import Flask, jsonify
+from flask_restful import Api
+from models import BaseModel
 from controllers import *
 
 
@@ -17,22 +18,26 @@ from controllers import *
 ## database connection, and data models.
 ##
 
-app = Flask("letsschedit")
-database = PooledMySQLDatabase()
-BaseModel.Meta.database = database
+api = Api(Flask("letsschedit"))
+db = BaseModel.get_database()
+db.init(
+	env('DATABASE'),
+	user=env('DB_USERNAME'),
+	password=env('DB_PASSWORD')
+)
 
-@app.before_request
-def db_connect():
+@api.app.before_request
+def _db_connect():
 	""" Ensures that whenever a HTTP request is comming in, a db connection is dispatched
 	from the pool. This is required as MySQL oftens kills idle connections, so we want
 	a hot new fresh one every time. """
-	database.connect()
+	db.connect()
 
-@app.teardown_request
+@api.app.teardown_request
 def _db_close(exc):
 	""" Ensures that whenever a request is finished being processed, the open connection is
 	closed and returned to the pool for reuse. """ 
-	if not database.is_closed(): database.close()
+	if not db.is_closed(): db.close()
 
 
 ##
@@ -43,9 +48,8 @@ def _db_close(exc):
 ## the API responds with specific actions.
 ##
 
-# home, the index page
-app.add_resource(HomeController, '/')
+api.add_resource(CalendarController, '/cal/<string:UUID>', '/cal/<string:UUID>/sync', '/cal/new')
 
 
 ## REQUIRED FOR CLI RUN ##
-if __name__ == '__main__': app.run()
+if __name__ == '__main__': api.app.run()
