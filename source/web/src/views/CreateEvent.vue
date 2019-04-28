@@ -12,11 +12,11 @@
           <div class="form-inline">
             <label for="name">Create an event named</label>
             <input type="text" id="name" name="name" placeholder="Name">
-            <label for="startDate">on</label>
+            <label for="startDate">between</label>
             <input type="text" id="startDate" name="startDate" placeholder="Start Date">
-            <label for="startDate">to</label>
+            <label for="startDate">and</label>
             <input type="text" id="endDate" name="endDate" placeholder="End Date">
-            <label for="startTime">from</label>
+            <label for="startTime">within</label>
             <input type="text" id="startTime" name="startTime" placeholder="Start Time">
             <label for="endTime">to</label>
             <input type="text" id="endTime" name="endTime" placeholder="End Time">
@@ -56,26 +56,26 @@ body {
 }
 h1 {
     font-size: 9rem;
-		text-align: left;
-		font-family: 'Montserrat', sans-serif;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-		color: #000000;
-		padding-left: 30px;
+    color: #000000;
+    padding-left: 30px;
 }
 h2 {
     font-size: 5rem;
-		text-align: left;
-		font-family: 'Montserrat', sans-serif;
-		font-weight: 700;
-		padding-left: 30px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    padding-left: 30px;
     color: #000000;
 }
 h3 {
     font-size: 2rem;
-		text-align: left;
-		font-family: 'Montserrat', sans-serif;
-		font-weight: bold;
-		padding-left: 30px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    padding-left: 30px;
     color: #000000;
 }
 p {
