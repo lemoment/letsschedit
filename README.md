@@ -50,9 +50,9 @@ When we first discussed how we wanted to change When2Meet, we wanted users to be
 This is what one of our first iterations of the homepage looked like. We only had an ‘Event Name’ button and a button to press to create the event.  
 ![iteration-1](documentation/iteration1.png)  
 Eventually, we decided on a different style of the homepage with only the options to login with Google or Outlook, which looked like this:  
-![iteration-2](documentation/iterationcal.png)   
-We were going to have sync options for the first time on the calendar page, but after our first Architectural Review and several group discussions, we decided to present the calendar differently.  
 ![cal](documentation/finalcreateevent.png)  
+We were going to have sync options for the first time on the calendar page, but after our first Architectural Review and several group discussions, we decided to present the calendar differently.  
+![iteration-2](documentation/iterationcal.png)    
 
 After learning what users wanted in the mobile view of the app, we decided to have a toggle of sorts to move back and forth between one's personal calendar and the group calendar view.  
 ![iteration-2](documentation/mobilecal.png)  
