@@ -13,11 +13,11 @@ Created by Riya Aggarwal, Elias Gabriel, Maalvika Bhat, and Dieter Brehm.
 You can setup the server component by running
 `cd source/api`, then `pip install -r requirements.txt` to install required libraries which are:  
 
-#### Backend - Deps  
+### Backend - Deps  
 * Flask  
 * Requires  
 
-#### Frontend - Deps  
+### Frontend - Deps  
 * vue js  
 * eslint  
 * babel  
@@ -30,5 +30,14 @@ The front end can be setup by running
 * For the frontend: run `cd source/web` and then `npm run dev`  
 * For the backend:  run `cd source/api` and then `python app.py`
 
-## Privacy and Impact of Software  
+## Demo
+
+## Implementation Details  
+<insert document>
+
+## Privacy and Impact of Software
 The primary source of possible ethical dilemmas we had to be cautious about in this project is privacy and user data handling. While we made an attempt to mitigate this potential issue by modeling our system to be calendar centric instead of user-centric, we do acknowledge that we collect users’ free time blocks through Google and Outlook API’s. The process of logging into the app does, however, clearly indicate the permissions and information being given to us through Google and Outlook.  
+
+## Our Journey
+
+## Attribution
