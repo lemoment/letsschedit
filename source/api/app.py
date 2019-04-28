@@ -1,24 +1,38 @@
 """
 Hosts the main application, routing endpoints to their desired controller.
 
-@author: Elias Gabriel, Dieter Brehm, Riya Aggarwal, Maalvika Bhat
+@author: Elias Gabriel
 @revision: v1.0
 """
-from dotenv import load_dotenv
 from flask import Flask
-from flask_restful import Api
+from core import RESTfulServer
+from playhouse.pool import PooledMySQLDatabase
 from controllers import *
 
 
 ##
 ## CONFIGURATION
 ##
-## Load enviornment configuration variables
-## and initialize the application instance.
+## Defines and configures the web server,
+## database connection, and data models.
 ##
 
-load_dotenv()
-api = Api(Flask(__name__))
+app = Flask("letsschedit")
+database = PooledMySQLDatabase()
+BaseModel.Meta.database = database
+
+@app.before_request
+def db_connect():
+	""" Ensures that whenever a HTTP request is comming in, a db connection is dispatched
+	from the pool. This is required as MySQL oftens kills idle connections, so we want
+	a hot new fresh one every time. """
+	database.connect()
+
+@app.teardown_request
+def _db_close(exc):
+	""" Ensures that whenever a request is finished being processed, the open connection is
+	closed and returned to the pool for reuse. """ 
+	if not database.is_closed(): database.close()
 
 
 ##
@@ -30,7 +44,8 @@ api = Api(Flask(__name__))
 ##
 
 # home, the index page
-api.add_resource(HomeController, '/')
+app.add_resource(HomeController, '/')
 
- 
-if __name__ == '__main__': api.app.run()
+
+## REQUIRED FOR CLI RUN ##
+if __name__ == '__main__': app.run()
