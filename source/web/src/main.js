@@ -10,7 +10,7 @@ Vue.config.productionTip = false
 
 const apiConfig = {
   apiKey: APITHING,
-  clientId: 'CLIENTTHING' + '.apps.googleusercontent.com',
+  clientId: CLIENTTHING + '.apps.googleusercontent.com',
   discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'],
   scope: 'https://www.googleapis.com/auth/calendar.readonly'
 }
