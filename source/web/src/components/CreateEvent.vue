@@ -4,7 +4,7 @@
       </header>
       <div>
         <img src="../assets/clock.png" alt="Clock" id="logo">
-        <h3 class="title">LET'S SCHED IT</h3>
+        <h3 class="title" style="margin-bottom: 30px">LET'S SCHED IT</h3>
       </div>
 
       <div class="page-content">
@@ -33,49 +33,75 @@
 <!-- CSS -->
 <style scoped>
 html {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  background-color: #FFFFFF;
-  color: #00000;
-  text-align: left;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    background-color: #FFFFFF;
+    color: rgb(255, 255, 255);
 }
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
+.page-content{
+  background-color:#e5e5e5; 
+  margin-left:20px;
+  margin-right: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  align-items: baseline;
+}
 h1 {
-  font-size: 9rem;
+    font-size: 9rem;
+		text-align: left;
+		font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+		color: #000000;
+		padding-left: 30px;
 }
 h2 {
-  font-size: 5rem;
+    font-size: 5rem;
+		text-align: left;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 700;
+		padding-left: 30px;
+    color: #000000;
 }
 h3 {
-  font-size: 2rem;
+    font-size: 2rem;
+		text-align: left;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: bold;
+		padding-left: 30px;
+    color: #000000;
 }
 p {
   font-size: 3rem;
+  text-align: center;
+  text-align: left;
+  padding-left: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #000000;
 }
- .form {
-  display: flex;
-  flex-flow: column;
- }
+
 .form-inline {
+  display: flex;
   flex-flow: row wrap;
-  background-color:#e5e5e5;
-  padding:20px;
+ }
+ .form {
+   display: flex;
+   flex-flow: column;
  }
 .form-inline input {
   padding: 3px 0 3px 0;
-  margin: 7px 10px 7px 10px;
+  margin: 5px 10px 5px 10px;
   box-sizing: border-box;
   border: 2px solid black;
   border-radius: 10px;
-  /*background-color: #e5e5e5;*/
-  background-color: #FFFFFF;
   text-align: center;
   color: #545454;
   font-family: 'Montserrat', sans-serif;
@@ -85,41 +111,46 @@ p {
   vertical-align: middle;
 }
 .form-inline label {
-  margin: 7px 0 7px 0;
+  margin: 0 0 0 0;
   font-size: 3rem;
+  text-align: center;
+  text-align: left;
+  padding: 0 10 0 10;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #000000;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 .form-inline ::placeholder {
   color: #bab4b4;
   font-weight: normal;
-  /*color: #545454;
-  font-weight: bold;*/
 }
 .button {
   border: 2px solid #52BDDF;
   box-sizing: border-box;
   border-radius: 10px;
-  padding: 1.1rem 4.5rem 1.1rem 1.3rem;
   background-color: #FFFFFF;
-  margin: 2rem 0 5rem 0;
   cursor: pointer;
   font-size: 3rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   color: #52BDDF;
+  margin-top: 2rem;
 }
 .button:hover {
   background-color: #52BDDF;
   color: #FFFFFF;
 }
-.jump{
-  margin-top: 15rem
-}
 .title {
-    margin: 0 0 0.7rem 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 #logo {
+  padding-left: 30px;
   float: left;
-  padding: 0 1rem 0 1rem
+  padding-right: 10px;
 }
 </style>
 
