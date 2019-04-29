@@ -6,10 +6,10 @@
          <h1 class="title" style="line-height:120px" >LET'S<br />SCHED<br />IT.</h1>
          <h2 class="title2" >Create Event</h2>
        <div class="page-content" style="margin-bottom: 10px">
-           <form class="form-inline">
-             <button v-on:click="login()" type="submit" >Login with Google</button>
+           <form class="form-inline" @submit.prevent="login()">
+             <button type="submit" >Login with Google</button>
               <br/>
-              <button v-on:click="login()" type="submit" >Login with Outlook</button>
+              <button type="submit" >Login with Outlook</button>
            </form>
            <div class="footer">
               <hr>
@@ -150,9 +150,36 @@ export default {
   methods: {
     login () {
       // Handle google login
+      console.log('You are already logged in,', this.$getUserData().firstName)
+      
       if (this.$isAuthenticated() !== true) {
         this.$login()
       }
+    },
+    getcal () {
+      var date = new Date();
+      date.setDate(date.getDate() + 7);
+
+      this.$getGapiClient().then(gapi => { 
+        // gapi.client.calendar.events.list({
+        //   'calendarId': 'primary',
+        //   'timeMin': (new Date()).toISOString(),
+        //   'showDeleted': false,
+        //   'singleEvents': true,
+        //   'maxResults': 10,
+        //   'orderBy': 'startTime'
+        // })
+        gapi.client.calendar.freebusy.query({
+          'timeMin': (new Date()).toISOString(),
+          'timeMax': (date.toISOString()),
+          "items": [
+            {
+              "id": 'primary'
+            }
+          ]
+        }).then(function(response) {
+          console.log(response.result)
+        })})
     }
   }
 }
