@@ -7,13 +7,13 @@
          <h2 class="title2" >Create Event</h2>
        <div class="page-content" style="margin-bottom: 10px">
            <form class="form-inline">
-             <button type="submit" >Login with Google</button>
-              <br />
-              <button type="submit" >Login with Outlook</button>
+             <button v-on:click="login()" type="submit" >Login with Google</button>
+              <br/>
+              <button v-on:click="login()" type="submit" >Login with Outlook</button>
            </form>
            <div class="footer">
               <hr>
-              <h3 style="margin-bottom: 10px" style="align-self: flex-left;" >Built<br />with ❤️ <br />by Oliners</h1>
+              <h3 style="margin-bottom: 10px; align-self: flex-left;">Built<br />with ❤️ <br />by Oliners</h1>
            </div>
        </div>
    </template>
@@ -143,9 +143,17 @@ hr {
 export default {
   name: 'CreateLogin',
   data () {
-	return {
-	  msg: 'Welcome to Your Vue.js App'
-	}
+    return {
+      msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    login () {
+      // Handle google login
+      if (this.$isAuthenticated() !== true) {
+        this.$login()
+      }
+    }
   }
 }
 </script>

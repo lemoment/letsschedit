@@ -9,8 +9,8 @@ import { APITHING, CLIENTTHING } from './secrets'
 Vue.config.productionTip = false
 
 const apiConfig = {
-  apiKey: APITHING,
-  clientId: CLIENTTHING + '.apps.googleusercontent.com.apps.googleusercontent.com',
+  apiKey: 'AIzaSyBHaQ8UZkBv-VD9hUg9mAF08C6pA-rrdXY',
+  clientId: '261348805351-0sjk6vlfu5v446pg3uciuaevmd4nms79.apps.googleusercontent.com',
   discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'],
   scope: 'https://www.googleapis.com/auth/calendar.readonly'
 }
