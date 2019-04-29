@@ -1,8 +1,9 @@
-# LetsSchedIt
-A free service which helps you find the best time for a group to meet, conveniently and automatically.
+<img src="/documentation/logo_20190419.png" width="128">
 
-## Installation & Setup
-To setup the development environments, follow the directions below for the applications you want to install.
+# Let's Sched It
+A free service which helps you find the best time for a group to meet, conveniently.
+
+## Development Dependencies
 
 ### Web Server
 **Node.js Requirements:**
@@ -10,8 +11,6 @@ To setup the development environments, follow the directions below for the appli
 * eslint
 * babel
 * parcel
-
-To install the required Node.js packages, you can simply run `cd ./source/api && npm install`.
 
 ### RESTful API Server
 **Python Requirements:**
@@ -21,9 +20,11 @@ To install the required Node.js packages, you can simply run `cd ./source/api &&
 * peewee
 * PyMySQL
 
-To install the required python packages, you can simply run `pip install -r ./source/api/requirements.txt`.
+## Installation & Setup
+To setup the development environment, all required packages must be present. To install the all required packages, you can simply run `python setup.py`. It will automatically check your system environment and install all the necessary Node.js and Python packages.
 
-MariaDB is also required to run this application. Installation varies depending on the system on which you plan on hosting the backend server. You can read installation instructions on the [official guide](https://downloads.mariadb.org/mariadb/repositories/#mirror=rackspace). To install it on Arch Linux:
+### MariaDB
+MariaDB is required to run the RESTful application. Installation varies depending on the system on which you plan on hosting the API server. You can read installation instructions on the [official guide](https://downloads.mariadb.org/mariadb/repositories/#mirror=rackspace). To install it on Arch Linux:
 
 ```sh
   $ su -
@@ -31,6 +32,7 @@ MariaDB is also required to run this application. Installation varies depending 
   $ mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
   $ '/usr/bin/mysql_secure_installation'
   $ systemctl start mariadb.service
+  $ systemctl enable mariadb.service
 ```
 
 ## Usage
@@ -38,7 +40,4 @@ You can start the frontend or backend servers by changing into the appropriate d
 * Frontend: `npm run dev`
 * Backend: `cd source/api && python app.py`
 
-## Structure
-![AR Diagram](documentation/ARDiagram.png)
-
-> Created by Elias Gabriel, Riya Aggarwal, Maalvika Bhat, and Dieter Brehm.
+> Created by Elias Gabriel, Maalvika Bhat, Dieter Brehm, and Riya Aggarwal.
