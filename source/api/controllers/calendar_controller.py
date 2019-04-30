@@ -6,9 +6,9 @@ Defines the controlling methods for the various calendar endpoints.
 """
 from flask_restful import Resource, reqparse
 from iso8601 import parse_date
-from ..models import Calendar
+from models import Calendar
 from playhouse.shortcuts import model_to_dict
-from ..core import errors
+from core import errors
 
 class CalendarController(Resource):
 	"""
@@ -40,7 +40,10 @@ class CalendarController(Resource):
 		an invalid request was made.
 		"""
 		try:
-			return errors.success(errors.CAL_GET_SUCCESS, calendar=model_to_dict(Calendar.get(Calendar.uuid == UUID)))
+			# Retrieve calendar from the database
+			cal = model_to_dict(Calendar.get(Calendar.uuid == UUID))
+			return errors.success(errors.CAL_GET_SUCCESS, calendar=cal)
+		# Return a "you-bad" JSON if a calendar isn't found
 		except: return errors.failure(errors.CAL_GET_FAILURE)
 
 	def post(self, UUID):
@@ -74,5 +77,7 @@ class CalendarController(Resource):
 					end=end_date
 				)
 
+			# Return a jsonified version of the new calendar
 			return errors.success(errors.CAL_CREATE_SUCCESS, calendar=model_to_dict(cal))
+		# Return a "tisk-tisk" JSON error
 		except: return errors.failure(errors.CAL_CREATE_FAILURE)
