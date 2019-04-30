@@ -39,7 +39,7 @@ if __name__ == "__main__":
 	cmd("pip install -r ./source/api/requirements.txt")
 
 	# Configure MySQL database
-	header("Configuring MySQL database")
+	header("Configuring the MySQL database")
 	cmd("cd ./source/api && python initdb.py")
 
 	print("\n*** \33[92mDependency installation complete!\33[0m ***")
