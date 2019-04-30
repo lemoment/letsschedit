@@ -38,9 +38,6 @@ html {
   background-color: #FFFFFF;
   color: #00000;
   text-align: left;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  color: #000000;
 }
 html, body {
   height: 100%;
@@ -112,7 +109,7 @@ p {
   color: #FFFFFF;
 }
 .jump{
-  margin-top: 15rem
+  margin-top: 3rem
 }
 .title {
     margin: 0 0 0.7rem 0;
