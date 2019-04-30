@@ -33,6 +33,3 @@ def success(msg, **kwargs):
 def failure(msg, **kwargs):
 	""" Generates a dictionary response with the given message indicating an API failure. """
 	return { status: "failure", message: msg, **kwargs }
-
-
-
