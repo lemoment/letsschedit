@@ -16,14 +16,15 @@ if __name__ == "__main__":
 	host = getenv('DB_HOST')
 	user = getenv('DB_USERNAME')
 	pwd = getenv('DB_PASSWORD')
+	params = {host: host, user: user, password: pwd}
 	
 	# Connect to the database server and create a new database
-	conn = pymysql.connect(host=host, user=user, password=pwd)
+	conn = pymysql.connect(**params)
 	conn.cursor().execute("CREATE DATABASE {}".format(database))
 	conn.close()
 
 	# Connect to the new database and create the tables
 	db = BaseModel._meta.database
-	db.init(database, host=host, user=user, password=pwd)
+	db.init(database, **params)
 	db.create_tables([Calendar, Appointment])
 	db.close()

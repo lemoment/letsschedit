@@ -8,7 +8,9 @@ from flask_restful import Resource, reqparse
 from iso8601 import parse_date
 from models import Calendar
 from playhouse.shortcuts import model_to_dict
-from core import errors
+from requests import errors
+
+
 
 class CalendarController(Resource):
 	"""
