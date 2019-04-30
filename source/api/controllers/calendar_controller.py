@@ -6,9 +6,9 @@ Defines the controlling methods for the various calendar endpoints.
 """
 from flask_restful import Resource, reqparse
 from iso8601 import parse_date
-from ..models import Calendar
+from models import Calendar
 from playhouse.shortcuts import model_to_dict
-from ..core import errors
+from core import errors
 
 class CalendarController(Resource):
 	"""
