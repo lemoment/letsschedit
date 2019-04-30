@@ -8,7 +8,7 @@
       </div>
 
       <div class="page-content">
-        <form class="form"> 
+        <form class="form" @submit.prevent="schedit()"> 
           <div class="form-inline">
             <label for="name">Create an event named</label>
             <input type="text" id="name" name="name" placeholder="Name">
@@ -130,6 +130,14 @@ export default {
   return {
     msg: 'Welcome to Your Vue.js App'
   }
+  },
+  methods: {
+    schedit() {
+      if (this.$isAuthenticated() == true) {
+        console.log('You are already logged in,', this.$getUserData().firstName)
+        this.$router.push('cal')
+      }
+    }
   }
 }
 </script>
