@@ -12,6 +12,7 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
+    "moment": "^2.24.0",
     "vue": "^2.6.10",
     "vue-gapi": "0.0.10",
     "vue-hot-reload-api": "^2.3.3",

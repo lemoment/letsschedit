@@ -11,19 +11,43 @@
         <form class="form" @submit.prevent="schedit()"> 
           <div class="form-inline">
             <label for="name">Create an event named</label>
-            <input type="text" id="name" name="name" placeholder="Name">
+            <input type="text" id="name" name="name" v-model="event.name" placeholder="Name">
 
             <label for="startDate">between</label>
-            <input onfocus="(this.type='date')" id="startDate" placeholder="Start Date">
+            <!-- <input onfocus="(this.type='date')" id="startDate" v-model="event.startDate" placeholder="Start Date"> -->
+
+            <input id="startDate" 
+                   onfocus="(this.type='date')" 
+                   :value="event.startDate && event.startDate.toISOString().split('T')[0]"
+                   @input="event.startDate = $event.target.valueAsDate"
+                   placeholder="Start Date">
 
             <label for="endDate">and</label>
-            <input onfocus="(this.type='date')" id="endDate" name="endDate" placeholder="End Date">
+            <!-- <input onfocus="(this.type='date')" id="endDate" name="endDate" v-model="event.endDate" placeholder="End Date"> -->
+
+            <input id="endDate" 
+                   onfocus="(this.type='date')" 
+                   :value="event.endDate && event.endDate.toISOString().split('T')[0]"
+                   @input="event.endDate = $event.target.valueAsDate"
+                   placeholder="End Date">
 
             <label for="startTime">within</label>
-            <input onfocus="(this.type='time')" id="startTime" name="startTime" placeholder="Start Time">
+            <!-- <input onfocus="(this.type='time')" id="startTime" name="startTime" v-model="event.startTime" placeholder="Start Time"> -->
+
+            <input id="startTime" 
+                   onfocus="(this.type='time')" 
+                   :value="event.startTime && event.startTime.toISOString().split('T')[0]"
+                   @input="event.startTime = $event.target.valueAsDate"
+                   placeholder="Start Time">
 
             <label for="endTime">to</label>
-            <input onfocus="(this.type='time')" id="endTime" name="endTime" placeholder="End Time">
+            <input onfocus="(this.type='time')" id="endTime" name="endTime" v-model="event.endTime" placeholder="End Time">
+
+             <!-- <input id="endTime" 
+                   onfocus="(this.type='time')" 
+                   :value="event.endTime && event.endTime.toISOString().split('T')[0]"
+                   @input="event.endTime = $event.target.valueAsDate"
+                   placeholder="End Time"> -->
 
             <label>.</label>
           </div>
@@ -34,6 +58,33 @@
      </div>
     </div>
 </template>
+
+
+<script>
+export default {
+  name: 'CreateEvent',
+  data () {
+    return {
+      event: {
+        name: '',
+        startDate: '',
+        endDate: '',
+        startTime: '',
+        endTime: '',
+      }
+    }
+  },
+  methods: {
+    schedit() {
+      if (this.$isAuthenticated() == true) {
+        console.log('You are already logged in,', this.$getUserData().firstName)
+        this.$router.push('cal')
+      }
+    }
+  }
+}
+</script>
+
 
 <!-- CSS -->
 <style scoped>
@@ -128,28 +179,3 @@ p {
   padding: 0 1rem 0 1rem
 }
 </style>
-
-<script>
-export default {
-  name: 'CreateEvent',
-  data () {
-    return {
-      event: {
-        name: '',
-        startDate: '',
-        endDate: '',
-        startTime: '',
-        endTime: '',
-      }
-    }
-  },
-  methods: {
-    schedit() {
-      if (this.$isAuthenticated() == true) {
-        console.log('You are already logged in,', this.$getUserData().firstName)
-        this.$router.push('cal')
-      }
-    }
-  }
-}
-</script>
