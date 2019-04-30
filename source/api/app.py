@@ -1,24 +1,43 @@
 """
 Hosts the main application, routing endpoints to their desired controller.
 
-@author: Elias Gabriel, Dieter Brehm, Riya Aggarwal, Maalvika Bhat
+@author: Elias Gabriel
 @revision: v1.0
 """
-from dotenv import load_dotenv
-from flask import Flask
+from os import getenv as env
+from flask import Flask, jsonify
 from flask_restful import Api
+from models import BaseModel
 from controllers import *
 
 
 ##
 ## CONFIGURATION
 ##
-## Load enviornment configuration variables
-## and initialize the application instance.
+## Defines and configures the web server,
+## database connection, and data models.
 ##
 
-load_dotenv()
-api = Api(Flask(__name__))
+api = Api(Flask("letsschedit"))
+db = BaseModel.get_database()
+db.init(
+	env('DATABASE'),
+	user=env('DB_USERNAME'),
+	password=env('DB_PASSWORD')
+)
+
+@api.app.before_request
+def _db_connect():
+	""" Ensures that whenever a HTTP request is comming in, a db connection is dispatched
+	from the pool. This is required as MySQL oftens kills idle connections, so we want
+	a hot new fresh one every time. """
+	db.connect()
+
+@api.app.teardown_request
+def _db_close(exc):
+	""" Ensures that whenever a request is finished being processed, the open connection is
+	closed and returned to the pool for reuse. """ 
+	if not db.is_closed(): db.close()
 
 
 ##
@@ -29,8 +48,8 @@ api = Api(Flask(__name__))
 ## the API responds with specific actions.
 ##
 
-# home, the index page
-api.add_resource(HomeController, '/')
+api.add_resource(CalendarController, '/cal/<string:UUID>', '/cal/<string:UUID>/sync', '/cal/new', resource_class_args=(db,))
 
- 
+
+## REQUIRED FOR CLI RUN ##
 if __name__ == '__main__': api.app.run()
