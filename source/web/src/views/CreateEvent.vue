@@ -12,14 +12,19 @@
           <div class="form-inline">
             <label for="name">Create an event named</label>
             <input type="text" id="name" name="name" placeholder="Name">
+
             <label for="startDate">between</label>
-            <input type="text" id="startDate" name="startDate" placeholder="Start Date">
-            <label for="startDate">and</label>
-            <input type="text" id="endDate" name="endDate" placeholder="End Date">
+            <input onfocus="(this.type='date')" id="startDate" placeholder="Start Date">
+
+            <label for="endDate">and</label>
+            <input onfocus="(this.type='date')" id="endDate" name="endDate" placeholder="End Date">
+
             <label for="startTime">within</label>
-            <input type="text" id="startTime" name="startTime" placeholder="Start Time">
+            <input onfocus="(this.type='time')" id="startTime" name="startTime" placeholder="Start Time">
+
             <label for="endTime">to</label>
-            <input type="text" id="endTime" name="endTime" placeholder="End Time">
+            <input onfocus="(this.type='time')" id="endTime" name="endTime" placeholder="End Time">
+
             <label>.</label>
           </div>
           <div class="jump">
@@ -81,6 +86,10 @@ p {
   width: 15rem;
   vertical-align: middle;
 }
+.form-inline input[type=date]{
+  font-size: 1.5rem;
+}
+
 .form-inline label {
   margin: 7px 0 7px 0;
   font-size: 3rem;
