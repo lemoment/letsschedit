@@ -48,7 +48,7 @@ def _db_close(exc):
 ## the API responds with specific actions.
 ##
 
-api.add_resource(CalendarController, '/cal/<string:UUID>', '/cal/<string:UUID>/sync', '/cal/new')
+api.add_resource(CalendarController, '/cal/<string:UUID>', '/cal/<string:UUID>/sync', '/cal/new', resource_class_args=(db,))
 
 
 ## REQUIRED FOR CLI RUN ##
