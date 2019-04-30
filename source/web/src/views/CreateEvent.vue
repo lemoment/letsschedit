@@ -127,9 +127,15 @@ p {
 export default {
   name: 'CreateEvent',
   data () {
-  return {
-    msg: 'Welcome to Your Vue.js App'
-  }
+    return {
+      event: {
+        name: '',
+        startDate: '',
+        endDate: '',
+        startTime: '',
+        endTime: '',
+      }
+    }
   },
   methods: {
     schedit() {
