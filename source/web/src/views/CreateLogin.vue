@@ -150,11 +150,16 @@ export default {
   methods: {
     login () {
       // Handle google login
-      console.log('You are already logged in,', this.$getUserData().firstName)
       
       if (this.$isAuthenticated() !== true) {
         this.$login()
       }
+
+      if (this.$isAuthenticated() == true) {
+        console.log('You are already logged in,', this.$getUserData().firstName)
+        this.$router.push('create-event')
+      }
+      
     },
     getcal () {
       var date = new Date();
