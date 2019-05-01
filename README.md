@@ -11,11 +11,11 @@ MariaDB is required to run the RESTful application. Installation varies dependin
 
 #### Ubuntu 18.04 LTS
 ```sh
-	$ su -
-	$ apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
-	$ add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://mirror.rackspace.com/mariadb/repo/10.3/ubuntu bionic main'
-	$ apt update
-	$ apt install mariadb-server
+  $ su -
+  $ apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
+  $ add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://mirror.rackspace.com/mariadb/repo/10.3/ubuntu bionic main'
+  $ apt update
+  $ apt install mariadb-server
 ```
 
 #### Arch Linux
