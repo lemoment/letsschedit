@@ -14,40 +14,16 @@
             <input type="text" id="name" name="name" v-model="event.name" placeholder="Name">
 
             <label for="startDate">between</label>
-            <!-- <input onfocus="(this.type='date')" id="startDate" v-model="event.startDate" placeholder="Start Date"> -->
-
-            <input id="startDate" 
-                   onfocus="(this.type='date')" 
-                   :value="event.startDate && event.startDate.toISOString().split('T')[0]"
-                   @input="event.startDate = $event.target.valueAsDate"
-                   placeholder="Start Date">
+            <input onfocus="(this.type='date')" id="startDate" v-model="event.startDate" placeholder="Start Date">
 
             <label for="endDate">and</label>
-            <!-- <input onfocus="(this.type='date')" id="endDate" name="endDate" v-model="event.endDate" placeholder="End Date"> -->
-
-            <input id="endDate" 
-                   onfocus="(this.type='date')" 
-                   :value="event.endDate && event.endDate.toISOString().split('T')[0]"
-                   @input="event.endDate = $event.target.valueAsDate"
-                   placeholder="End Date">
+            <input onfocus="(this.type='date')" id="endDate" name="endDate" v-model="event.endDate" placeholder="End Date">
 
             <label for="startTime">within</label>
-            <!-- <input onfocus="(this.type='time')" id="startTime" name="startTime" v-model="event.startTime" placeholder="Start Time"> -->
-
-            <input id="startTime" 
-                   onfocus="(this.type='time')" 
-                   :value="event.startTime && event.startTime.toISOString().split('T')[0]"
-                   @input="event.startTime = $event.target.valueAsDate"
-                   placeholder="Start Time">
+            <input onfocus="(this.type='time')" id="startTime" name="startTime" v-model="event.startTime" placeholder="Start Time">
 
             <label for="endTime">to</label>
             <input onfocus="(this.type='time')" id="endTime" name="endTime" v-model="event.endTime" placeholder="End Time">
-
-             <!-- <input id="endTime" 
-                   onfocus="(this.type='time')" 
-                   :value="event.endTime && event.endTime.toISOString().split('T')[0]"
-                   @input="event.endTime = $event.target.valueAsDate"
-                   placeholder="End Time"> -->
 
             <label>.</label>
           </div>
@@ -61,6 +37,9 @@
 
 
 <script>
+import moment from 'moment'
+import axios from 'axios'
+
 export default {
   name: 'CreateEvent',
   data () {
@@ -71,13 +50,42 @@ export default {
         endDate: '',
         startTime: '',
         endTime: '',
+        event_name: '',
+        start_date: '',
+        end_date: ''
       }
     }
   },
   methods: {
     schedit() {
+      // if (this.$isAuthenticated() == true) {
+      // {
+      //   "message": {
+      //     "event_name": "Missing required parameter in the JSON body",
+      //     "start_date": "Missing required parameter in the JSON body",
+      //     "end_date": "Missing required parameter in the JSON body"
+      //   }
+      // }
       if (this.$isAuthenticated() == true) {
-        console.log('You are already logged in,', this.$getUserData().firstName)
+        this.event.event_name = this.event.name
+        
+        this.event.start_date = moment(this.event.startDate + ' ' + this.event.startTime).toISOString();
+        this.event.end_date = moment(this.event.endDate + ' ' + this.event.endTime).toISOString();
+        // console.log(this.event.end_date)
+        // console.log(this.event.startDate, this.event.startTime)   
+        // console.log('You are already logged in,', this.$getUserData().firstName)
+    
+        let data = JSON.stringify({
+          event_name: this.event.event_name,
+          start_date: this.event.start_date,
+          end_date: this.event.end_date
+        })
+
+        axios.put("http://127.0.0.1:5000/cal/new", data,
+                  {headers: {"Content-Type": "application/json"}}) 
+              .then(r => console.log(r.status))
+              .catch(e => console.log(e));
+        console.log("stuff happening!")
         this.$router.push('cal')
       }
     }

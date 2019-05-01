@@ -6,7 +6,15 @@ import router from './router'
 import VueGAPI from 'vue-gapi'
 import { APITHING, CLIENTTHING } from './secrets'
 
+
+import moment from 'moment'
+import axios from 'axios'
+
 Vue.config.productionTip = false
+
+window.aThing = moment("2019-12-06" + ' ' + "10:30")
+// window.aDate  = moment('Sun Mar 01 1998 19:00:00 GMT-0500')
+// window.ATime = moment('00:30')
 
 const apiConfig = {
   apiKey: APITHING,

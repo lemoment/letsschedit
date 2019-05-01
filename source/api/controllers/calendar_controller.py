@@ -52,7 +52,7 @@ class CalendarController(Resource):
 		""" Resyncs the given Calendar with the given list of appointments. """
 		pass
 
-
+	
 	def put(self):
 		""" Accepts an expected JSON body containing the parameters required to define
 		a new Calendar. If all verifications pass, a new Calendar is created and its
