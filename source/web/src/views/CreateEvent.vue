@@ -14,16 +14,16 @@
             <input type="text" id="name" name="name" placeholder="Name">
 
             <label for="startDate">between</label>
-            <input onfocus="(this.type='date')" id="startDate" placeholder="Start Date">
+            <input onfocus="(this.type='date')" id="startDate" onblur="(this.id='filledData')" placeholder="Start Date"  class="unstyled">
 
             <label for="endDate">and</label>
-            <input onfocus="(this.type='date')" id="endDate" name="endDate" placeholder="End Date">
+            <input onfocus="(this.type='date')" id="endDate" onblur="(this.id='filledData')" placeholder="End Date" class="unstyled">
 
             <label for="startTime">within</label>
-            <input onfocus="(this.type='time')" id="startTime" name="startTime" placeholder="Start Time">
+            <input onfocus="(this.type='time')" id="startTime" onblur="(this.id='filledData')"name="startTime" placeholder="Start Time">
 
             <label for="endTime">to</label>
-            <input onfocus="(this.type='time')" id="endTime" name="endTime" placeholder="End Time">
+            <input onfocus="(this.type='time')" id="endTime" onblur="(this.id='filledData')" name="endTime" placeholder="End Time">
 
             <label>.</label>
           </div>
@@ -76,20 +76,39 @@ p {
   box-sizing: border-box;
   border: 2px solid black;
   border-radius: 10px;
-  /*background-color: #e5e5e5;*/
   background-color: #FFFFFF;
   text-align: center;
   color: #545454;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   width: 15rem;
   vertical-align: middle;
 }
 .form-inline input[type=date]{
   font-size: 1.5rem;
+  color: #bab4b4;
+  font-weight: normal;
+  width: 17rem;
 }
-
+.form-inline input[type=time]{
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: #bab4b4;
+}
+#filledData::-webkit-inner-spin-button,
+#filledData::-webkit-clear-button {
+  display: none;
+  -webkit-appearance: none;
+}
+#filledData::-webkit-calendar-picker-indicator {
+  font-size: 17px;
+}
+#filledData {
+  font-weight: bold;
+  font-size: 2.4rem;
+  color: #545454;
+}
 .form-inline label {
   margin: 7px 0 7px 0;
   font-size: 3rem;
@@ -97,9 +116,8 @@ p {
 .form-inline ::placeholder {
   color: #bab4b4;
   font-weight: normal;
-  /*color: #545454;
-  font-weight: bold;*/
 }
+
 .button {
   border: 2px solid #52BDDF;
   box-sizing: border-box;
