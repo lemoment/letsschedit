@@ -20,7 +20,7 @@ class Calendar(BaseModel):
 	""" Defines the Calendar model for the database. Table schema is commented above. """
 	idx = BigAutoField()
 	uuid = UUIDField(unique=True)
-	created = DateTimeField(default=datetime.utcnow())
+	created_at = DateTimeField(default=datetime.utcnow)
 	start_date = DateTimeField()
 	end_date = DateTimeField()
 	interval = IntegerField(default=15)

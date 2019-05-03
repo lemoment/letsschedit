@@ -32,7 +32,7 @@ if __name__ == "__main__":
 
 	# Download Node dependencies
 	header("Installing node dependencies")
-	cmd("cd ./source/web && npm clean-install")
+	cmd("cd ./source/web && npm install")
 
 	# Download Python dependencies
 	header("Installing pre-built Python dependencies")
@@ -40,6 +40,6 @@ if __name__ == "__main__":
 
 	# Configure MySQL database
 	header("Configuring the MySQL database")
-	cmd("cd ./source/api && python initdb.py")
+	cmd("cd ./source/api && python .pyinitdb")
 
 	print("\n*** \33[92mDependency installation complete!\33[0m ***")
