@@ -81,9 +81,11 @@ export default {
           end_date: this.event.end_date
         })
 
-        axios.put("http://127.0.0.1:5000/cal/new", data,
+        console.log(data)
+
+        axios.put("http://127.0.0.1:5000/create/cal", data,
                   {headers: {"Content-Type": "application/json"}}) 
-              .then(r => console.log(r.status))
+              .then(r => console.log(r))
               .catch(e => console.log(e));
         console.log("stuff happening!")
         this.$router.push('cal')
