@@ -16,8 +16,8 @@
               <h3 style="align-self: flex-start;" >Built<br />with ❤️ <br />by Oliners</h1>
            </div>
            <div class="w3-display-container">
-             <img src="palmfronds.jpg" alt="Leaves">
-             <div class="w3-display-topleft w3-container">Top Left</div>
+             <img src="leaves.jpg" alt="Leaves">
+             <div class="w3-display-topleft w3-container"></div>
            </div>
        </div>
    </template>
@@ -41,7 +41,6 @@ body {
 }
 .page-content{
   background-color:#FFFFFF;
-
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -130,8 +129,23 @@ h3 {
 .w3-display-container {
   padding-right:0px;
   position: fixed;
-  left: 900px;
+  right: 0rem;
   top: 0px;
+  width:50%;
+  height: auto;
+  max-width: 700px
+}
+
+@media (max-width: 919px) {
+    .w3-display-container {
+        width:30%;
+    }
+}
+
+@media (max-width: 640px) {
+    .w3-display-container {
+        display: none;
+    }
 }
 
 </style>
