@@ -5,8 +5,7 @@ import App from './App'
 import router from './router'
 import VueGAPI from 'vue-gapi'
 import { APITHING, CLIENTTHING } from './secrets'
-
-
+import FullCalendar from 'vue-full-calendar'
 import moment from 'moment'
 import axios from 'axios'
 
@@ -24,6 +23,7 @@ const apiConfig = {
 }
 
 Vue.use(VueGAPI, apiConfig)
+Vue.use(FullCalendar)
 
 /* eslint-disable no-new */
 new Vue({
