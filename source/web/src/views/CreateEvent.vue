@@ -8,23 +8,22 @@
       </div>
 
       <div class="page-content">
-        <form class="form"> 
+        <form class="form" @submit.prevent="schedit()"> 
           <div class="form-inline">
             <label for="name">Create an event named</label>
-            <input type="text" id="name" name="name" placeholder="Name">
+            <input type="text" id="name" name="name" v-model="event.name" placeholder="Name">
 
             <label for="startDate">between</label>
-            <input onfocus="(this.type='date')" id="startDate" onblur="(this.id='filledData')" placeholder="Start Date"  class="unstyled">
+            <input onfocus="(this.type='date')" id="startDate" v-model="event.startDate" onblur="(this.id='filledData')" placeholder="Start Date"  class="unstyled">
 
             <label for="endDate">and</label>
-            <input onfocus="(this.type='date')" id="endDate" onblur="(this.id='filledData')" placeholder="End Date" class="unstyled">
+            <input onfocus="(this.type='date')" id="endDate" v-model="event.endDate" onblur="(this.id='filledData')" placeholder="End Date" class="unstyled">
 
             <label for="startTime">within</label>
-            <input onfocus="(this.type='time')" id="startTime" onblur="(this.id='filledData')" name="startTime" placeholder="Start Time">
+            <input onfocus="(this.type='time')" id="startTime" v-model="event.startTime" onblur="(this.id='filledData')" name="startTime" placeholder="Start Time">
 
             <label for="endTime">to</label>
-            <input onfocus="(this.type='time')" id="endTime" onblur="(this.id='filledData')" name="endTime" placeholder="End Time">
-
+            <input onfocus="(this.type='time')" id="endTime"  v-model="event.endTime" onblur="(this.id='filledData')" name="endTime" placeholder="End Time">
             <label>.</label>
           </div>
           <div class="jump">
