@@ -24,16 +24,15 @@
 
 
 <!-- CSS -->
-<style>
-
+<style scoped>
 html {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    background-color: #FFFFFF;
-    color: rgb(255, 255, 255);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  background-color: #FFFFFF;
+  color: #000000;
+  text-align: left;
 }
-html,
-body {
+html, body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -190,14 +189,6 @@ export default {
       date.setDate(date.getDate() + 7);
 
       this.$getGapiClient().then(gapi => { 
-        // gapi.client.calendar.events.list({
-        //   'calendarId': 'primary',
-        //   'timeMin': (new Date()).toISOString(),
-        //   'showDeleted': false,
-        //   'singleEvents': true,
-        //   'maxResults': 10,
-        //   'orderBy': 'startTime'
-        // })
         gapi.client.calendar.freebusy.query({
           'timeMin': (new Date()).toISOString(),
           'timeMax': (date.toISOString()),

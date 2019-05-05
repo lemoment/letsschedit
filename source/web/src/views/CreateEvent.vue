@@ -8,34 +8,22 @@
       </div>
 
       <div class="page-content">
-        <form class="form" @submit.prevent="schedit()"> 
+        <form class="form"> 
           <div class="form-inline">
             <label for="name">Create an event named</label>
-            <input type="text" id="name" name="name" v-model="event.name" placeholder="Name">
+            <input type="text" id="name" name="name" placeholder="Name">
 
             <label for="startDate">between</label>
-            <input onfocus="(this.type='date')" id="startDate" v-model="event.startDate" onblur="(this.id='filledData')" placeholder="Start Date"  class="unstyled">
+            <input onfocus="(this.type='date')" id="startDate" onblur="(this.id='filledData')" placeholder="Start Date"  class="unstyled">
 
             <label for="endDate">and</label>
-            <input onfocus="(this.type='date')" id="endDate" v-model="event.endDate" onblur="(this.id='filledData')" placeholder="End Date" class="unstyled">
+            <input onfocus="(this.type='date')" id="endDate" onblur="(this.id='filledData')" placeholder="End Date" class="unstyled">
 
             <label for="startTime">within</label>
-            <input onfocus="(this.type='time')" id="startTime" v-model="event.startTime" onblur="(this.id='filledData')" name="startTime" placeholder="Start Time">
+            <input onfocus="(this.type='time')" id="startTime" onblur="(this.id='filledData')" name="startTime" placeholder="Start Time">
 
             <label for="endTime">to</label>
-            <input onfocus="(this.type='time')" id="endTime"  v-model="event.endTime" onblur="(this.id='filledData')" name="endTime" placeholder="End Time">
-
-            <!-- <input onfocus="(this.type='date')" id="startDate" v-model="event.startDate" placeholder="Start Date">
-
-            <label for="endDate">and</label>
-            <input onfocus="(this.type='date')" id="endDate" name="endDate" v-model="event.endDate" placeholder="End Date">
-
-            <label for="startTime">within</label>
-            <input onfocus="(this.type='time')" id="startTime" name="startTime" v-model="event.startTime" placeholder="Start Time">
-
-            <label for="endTime">to</label>
-            <input onfocus="(this.type='time')" id="endTime" name="endTime" v-model="event.endTime" placeholder="End Time"> -->
-
+            <input onfocus="(this.type='time')" id="endTime" onblur="(this.id='filledData')" name="endTime" placeholder="End Time">
 
             <label>.</label>
           </div>
@@ -47,74 +35,13 @@
     </div>
 </template>
 
-
-<script>
-import moment from 'moment'
-import axios from 'axios'
-
-export default {
-  name: 'CreateEvent',
-  data () {
-    return {
-      event: {
-        name: '',
-        startDate: '',
-        endDate: '',
-        startTime: '',
-        endTime: '',
-        event_name: '',
-        start_date: '',
-        end_date: ''
-      }
-    }
-  },
-  methods: {
-    schedit() {
-      // if (this.$isAuthenticated() == true) {
-      // {
-      //   "message": {
-      //     "event_name": "Missing required parameter in the JSON body",
-      //     "start_date": "Missing required parameter in the JSON body",
-      //     "end_date": "Missing required parameter in the JSON body"
-      //   }
-      // }
-      if (this.$isAuthenticated() == true) {
-        this.event.event_name = this.event.name
-        
-        this.event.start_date = moment(this.event.startDate + ' ' + this.event.startTime).toISOString();
-        this.event.end_date = moment(this.event.endDate + ' ' + this.event.endTime).toISOString();
-        // console.log(this.event.end_date)
-        // console.log(this.event.startDate, this.event.startTime)   
-        // console.log('You are already logged in,', this.$getUserData().firstName)
-    
-        let data = JSON.stringify({
-          event_name: this.event.event_name,
-          start_date: this.event.start_date,
-          end_date: this.event.end_date
-        })
-
-        console.log(data)
-
-        axios.put("http://127.0.0.1:5000/create/cal", data,
-                  {headers: {"Content-Type": "application/json"}}) 
-              .then(r => console.log(r))
-              .catch(e => console.log(e));
-        console.log("stuff happening!")
-        this.$router.push('cal')
-      }
-    }
-  }
-}
-</script>
-
-
 <!-- CSS -->
 <style scoped>
 html {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   background-color: #FFFFFF;
-  color: #00000;
+  color: #000000;
   text-align: left;
 }
 html, body {
@@ -190,7 +117,6 @@ p {
   color: #bab4b4;
   font-weight: normal;
 }
-
 .button {
   border: 2px solid #52BDDF;
   box-sizing: border-box;
@@ -219,3 +145,51 @@ p {
   padding: 0 1rem 0 1rem
 }
 </style>
+
+<script>
+import moment from 'moment'
+import axios from 'axios'
+
+export default {
+  name: 'CreateEvent',
+  data () {
+    return {
+      event: {
+        name: '',
+        startDate: '',
+        endDate: '',
+        startTime: '',
+        endTime: '',
+        event_name: '',
+        start_date: '',
+        end_date: ''
+      }
+    }
+  },
+  methods: {
+    schedit() {
+      if (this.$isAuthenticated() == true) {
+        this.event.event_name = this.event.name
+        
+        this.event.start_date = moment(this.event.startDate + ' ' + this.event.startTime).toISOString();
+        this.event.end_date = moment(this.event.endDate + ' ' + this.event.endTime).toISOString();
+
+        let data = JSON.stringify({
+          event_name: this.event.event_name,
+          start_date: this.event.start_date,
+          end_date: this.event.end_date
+        })
+
+        console.log(data)
+
+        axios.put("http://127.0.0.1:5000/create/cal", data,
+                  {headers: {"Content-Type": "application/json"}}) 
+              .then(r => console.log(r))
+              .catch(e => console.log(e));
+        console.log("stuff happening!")
+        this.$router.push('cal')
+      }
+    }
+  }
+}
+</script>
