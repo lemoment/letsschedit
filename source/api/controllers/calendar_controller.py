@@ -6,7 +6,7 @@ Defines the controlling methods for the various calendar endpoints.
 """
 from flask_restful import reqparse
 from models import Calendar, BaseModel
-from playhouse.shortcuts import model_to_dict
+from playhouse.shortcuts import model_to_dict as m2d
 from requests import Responses, enlang
 import uuid
 from datetime import datetime
@@ -41,8 +41,8 @@ class CalendarController():
 			# Collect all the required calendar fields
 			cal_uuid = str(uuid.uuid4())
 			name = args['event_name']
-			start = datetime.fromisoformat(args['start_date'])
-			end = datetime.fromisoformat(args['end_date'])
+			start = datetime.fromisoformat(args['start_date'].rstrip('Z'))
+			end = datetime.fromisoformat(args['end_date'].rstrip('Z'))
 			
 			# Ensure that this operation happens atomically, as in nothing else is
 			# happening when we create a new entry
@@ -56,7 +56,7 @@ class CalendarController():
 				)
 				
 			# Return a jsonified version of the new calendar
-			return Responses.success(enlang.CAL_CREATE_SUCCESS, calendar=model_to_dict(cal))
+			return Responses.success(enlang.CAL_CREATE_SUCCESS, calendar=m2d(cal, exclude=[ Calendar.idx ]))
 		except Exception as e:
 			print(e)
 			# Return a "tisk-tisk" JSON error
@@ -72,7 +72,7 @@ class CalendarController():
 			# Retrieve calendar from the database
 			cal = Calendar.get(Calendar.uuid == UUID)
 
-			return Responses.success(enlang.CAL_GET_SUCCESS, calendar=model_to_dict(cal))
+			return Responses.success(enlang.CAL_GET_SUCCESS, calendar=m2d(cal, exclude=[ Calendar.idx ]))
 		# Return a "you-bad" JSON if a calendar isn't found
 		except: return Responses.failure(enlang.CAL_GET_FAILURE)
 

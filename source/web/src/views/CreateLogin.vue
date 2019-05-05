@@ -5,15 +5,19 @@
       <div>
          <h1 class="title" style="line-height:120px" >LET'S<br />SCHED<br />IT.</h1>
          <h2 class="title2" >Create Event</h2>
-       <div class="page-content" style="margin-bottom: 10px">
+       <div class="page-content">
            <form class="form-inline" @submit.prevent="login()">
              <button type="submit" >Login with Google</button>
               <br/>
               <button type="submit" >Login with Outlook</button>
            </form>
+           <br />
            <div class="footer">
-              <hr>
-              <h3 style="margin-bottom: 10px; align-self: flex-left;">Built<br />with ❤️ <br />by Oliners</h1>
+              <h3 style="align-self: flex-start;" >Built<br />with ❤️ <br />by Oliners</h1>
+           </div>
+           <div class="w3-display-container">
+             <img src="../assets/leaves.jpg" alt="Leaves">
+             <div class="w3-display-topleft w3-container"></div>
            </div>
        </div>
    </template>
@@ -39,7 +43,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  padding: 20px;
+  padding: 30px;
   align-items: left;
 }
 h1 {
@@ -49,7 +53,7 @@ h1 {
     font-weight: 600;
 		color: #000000;
 		padding-left: 30px;
-    padding-top: 20px;
+    position: fixed;
 }
 h2 {
     font-size: 2rem;
@@ -58,6 +62,7 @@ h2 {
     font-weight: bold;
     padding-left: 30px;
     color: #000000;
+    position: fixed;
 }
 h3 {
     font-size: 1rem;
@@ -66,31 +71,18 @@ h3 {
 		font-weight: bold;
 		padding-left: 30px;
     color: #000000;
+    position: fixed;
 }
-p {
-  font-size: 3rem;
-  text-align: center;
-  text-align: left;
-  padding-left: 10px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  color: #000000;
-}
-hr {
-  margin-top: 4em;
-  margin-left: 10px;
-  margin-right: 650px;
-  text-align: left;
-  border-style: inset;
-  border-width: 2px;
-  color: #000000;
+.container {
   display: flex;
-  justify-content: flex-end;
+
+  flex-wrap: flex-end;
 }
+
 .form-inline {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  position: fixed;
+  left: 35px;
+  top: 480px;
  }
 
 .form-inline label {
@@ -113,27 +105,60 @@ hr {
   border-radius: 10px;
   background-color: #FFFFFF;
   cursor: pointer;
-  margin-top: auto;
-  margin-right: auto;
-  margin-bottom: -10px;
   display: block;
   font-size: 2rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   color: #000000;
-  align-self: flex-end;
+  position: sticky;
+
 }
 .form-inline button:hover {
   background-color: #C0C0C0;
   color: #FFFFFF;
 }
 .title {
-    margin-top: 0px;
-    margin-bottom: 0px;
+    position: fixed;
+    margin-top: auto;
+    margin-bottom: auto;
 }
-.date {
-    margin-top: 0px;
-    margin-bottom: 0px;
+.title2 {
+    position: fixed;
+    margin-top: auto;
+    margin-bottom: auto;
+    left: 7px;
+    top: 420px;
+}
+.footer {
+  width: 100%;
+  height: 120px;
+  border-radius: 3px;
+  color: #ffffff;
+  position: fixed;
+  left: 10px;
+  top:610px;
+  margin-left: auto;
+}
+.w3-display-container {
+  padding-right:0px;
+  position: fixed;
+  right: 0rem;
+  top: 0px;
+  width:50%;
+  height: auto;
+  max-width: 700px
+}
+
+@media (max-width: 919px) {
+    .w3-display-container {
+        width:30%;
+    }
+}
+
+@media (max-width: 640px) {
+    .w3-display-container {
+        display: none;
+    }
 }
 
 </style>
