@@ -3,7 +3,9 @@
       <header class="page-header">
       </header>
       <div>
-        <img src="../assets/clock.png" alt="Clock" id="logo">
+        <router-link to="/">
+          <img src="../assets/clock.png" alt="Clock" id="logo">
+        </router-link>
         <h3 class="title">LET'S SCHED IT</h3>
       </div>
 

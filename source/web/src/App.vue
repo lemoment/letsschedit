@@ -3,7 +3,7 @@
     <div id="nav">
       <!-- <router-link to="/">Home</router-link> -->
       <!-- <router-link to="create-event">create-event</router-link> -->
-      <router-link to="cal">cal</router-link>
+      <!-- <router-link to="cal">cal</router-link> -->
     </div>
     <div class="container">
       <router-view></router-view>
