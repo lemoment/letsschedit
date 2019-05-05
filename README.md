@@ -39,6 +39,11 @@ To install the all required packages, you can simply run `python setup.py`. It w
 * eslint
 * babel
 * parcel
+* Jquery
+* vue-fullcalendar
+* axios
+* vue-gapi
+* moment.js
 
 **Python Requirements:**
 * flask
