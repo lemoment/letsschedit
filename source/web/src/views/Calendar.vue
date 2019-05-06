@@ -37,6 +37,7 @@ h3 {
 #header {
 	padding-top: 0.3rem;
 	flex: 2 0px;
+    min-width: 23rem
 }
 .title {
     margin: 0.1rem 1rem 0.8rem 0.5rem;
@@ -84,11 +85,17 @@ overrider .fc-state-default {
     color: #FFFFFF;
 }
 
-@media (max-width: 605px) {
+@media (max-width: 725px) {
 	#flow {
 		flex-flow: column wrap;
 		align-items: flex-start;
 	}
+    #header {
+        min-width: 22rem
+    }
+    .actions .button {
+        font-size: 1.5rem;
+    }
 }
 
 </style>
