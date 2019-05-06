@@ -46,12 +46,14 @@ class CalendarController():
 			# Collect all the required calendar fields
 			cal_uuid = str(uuid.uuid4())
 			name = args['event_name']
-
-			# TODO: Round to closest interval
-
 			start = datetime.fromisoformat(args['start_date'])
 			end = datetime.fromisoformat(args['end_date'])
-			
+			interval = 1
+
+			# Round the start and end times to the closest interval
+			start = start - datetime.timedelta(minutes=start.minute % interval, seconds=0, microseconds=0)
+			end = end - datetime.timedelta(minutes=end.minute % interval, seconds=0, microseconds=0)
+	
 			# Ensure that this operation happens atomically, as in nothing else is
 			# happening when we create a new entry
 			with BaseModel.get_database().atomic():
@@ -59,6 +61,7 @@ class CalendarController():
 				cal = Calendar.create(
 					uuid=cal_uuid,
 					name=name,
+					interval=interval,
 					start_date=start,
 					end_date=end
 				)
@@ -106,11 +109,8 @@ class CalendarController():
 			flag = True
 			
 			# Verify the token with the right provider
-			#if provider == "Google":
-			#	email = oauth.veriauth_google(token)
-			#	flag = True
-			email = "eliasfgabriel@gmail.com"
-			author = "Elias Gabriel"
+			if !flag and provider == "Google":
+				email = oauth.veriauth_google(token)
 
 			if flag:
 				# Sync the calendar appointments with voodoo majyc
@@ -228,8 +228,6 @@ class CalendarController():
 				# Increment the loop to start at the next block to be checked, excluding the start
 				# block because we already know it is in the new range
 				i += 1
-
-		print(free_appointments)
 
 		# Wrap it all in a transaction because we want the data switch to be as quick as possible
 		with BaseModel.get_database().atomic():
