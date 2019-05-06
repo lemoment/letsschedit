@@ -182,7 +182,6 @@ export default {
         console.log('You are already logged in,', this.$getUserData().firstName)
         this.$router.push('create-event')
       }
-      
     },
     getcal () {
       var date = new Date();

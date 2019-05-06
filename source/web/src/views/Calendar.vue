@@ -38,6 +38,7 @@ export default {
                     allDay : false,
                 },
             ],
+            results: {},
             config: {
                 height: "auto",
                 editable: false,
@@ -52,23 +53,23 @@ export default {
             this.$router.push('/')
         },
         sync() {
-
+            this.getcal()
         },
         getcal () {
-        var date = new Date();
-        date.setDate(date.getDate() + 7);
+            var date = new Date();
+            date.setDate(date.getDate() + 7);
 
-        this.$getGapiClient().then(gapi => { 
-            gapi.client.calendar.freebusy.query({
-            'timeMin': (new Date()).toISOString(),
-            'timeMax': (date.toISOString()),
-            "items": [
-                {
-                "id": 'primary'
-                }
-            ]
-            }).then(function(response) {
-            console.log(response.result)
+            this.$getGapiClient().then(gapi => { 
+                gapi.client.calendar.freebusy.query({
+                'timeMin': (new Date()).toISOString(),
+                'timeMax': (date.toISOString()),
+                "items": [
+                    {
+                    "id": 'primary'
+                    }
+                ]
+                }).then(function(response) {
+                    results = response.result
             })})
         }  
     }
