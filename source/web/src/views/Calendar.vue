@@ -6,6 +6,10 @@
         </router-link>
         <h3 class="title">LET'S SCHED IT</h3>
       </div>
+        <div class="actions">
+            <button class="button"  v-on:click="sync()">Sync</button>
+            <button class="button"  v-on:click="logout()">Logout</button>
+        </div>
         <full-calendar id="overrider" :events="events"
                        :config="config"></full-calendar>
     </div>
@@ -41,25 +45,32 @@ export default {
         }
     },
     methods: {
-        getcal () {
-            var date = new Date();
-            // set a date seven days in the future,
-            // get a week of events
-            date.setDate(date.getDate() + 7);
+        logout(){
+            if (this.$isAuthenticated() == true) {
+                this.$logout()
+            }
+            this.$router.push('/')
+        },
+        sync() {
 
-            this.$getGapiClient().then(gapi => { 
+        },
+        getcal () {
+        var date = new Date();
+        date.setDate(date.getDate() + 7);
+
+        this.$getGapiClient().then(gapi => { 
             gapi.client.calendar.freebusy.query({
-                'timeMin': (new Date()).toISOString(),
-                'timeMax': (date.toISOString()),
-                "items": [
+            'timeMin': (new Date()).toISOString(),
+            'timeMax': (date.toISOString()),
+            "items": [
                 {
-                    "id": 'primary'
+                "id": 'primary'
                 }
-                ]
+            ]
             }).then(function(response) {
-                console.log(response.result)
+            console.log(response.result)
             })})
-        }   
+        }  
     }
 }
 </script>
@@ -89,4 +100,24 @@ export default {
   border: 1px solid;
   background-color: white;
   background-image: none; }
+.actions {
+    margin-bottom: 1rem;
+}
+.actions .button {
+    border: 2px solid #52BDDF;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 0.5rem 2.5rem 0.5rem 0.5rem;
+    background-color: #FFFFFF;
+    margin: 1rem 0 1rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: #52BDDF;
+}
+.actions .button:hover{
+    background-color: #52BDDF;
+    color: #FFFFFF;
+}
 </style>
