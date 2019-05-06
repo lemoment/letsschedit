@@ -3,4 +3,3 @@ from .calendar import Calendar
 from .appointment import Appointment
 
 __all__ = ["BaseModel", "Calendar", "Appointment"]
-
