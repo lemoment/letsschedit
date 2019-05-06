@@ -1,19 +1,97 @@
 <template>
     <div id="cal">
-      <div>
-        <router-link to="/">
-          <img src="../assets/clock.png" alt="Clock" id="logo">
-        </router-link>
-        <h3 class="title">LET'S SCHED IT</h3>
-      </div>
+      <div id="flow">
+      	<div id="header">
+        	<router-link to="/">
+          		<img src="../assets/clock.png" alt="Clock" id="logo">
+        	</router-link>
+        	<h3 class="title">LET'S SCHED IT</h3>
+    	</div>
         <div class="actions">
             <button class="button"  v-on:click="sync()">Sync</button>
             <button class="button"  v-on:click="logout()">Logout</button>
         </div>
+      </div>
         <full-calendar id="overrider" :events="events"
                        :config="config"></full-calendar>
     </div>
 </template>
+
+<style>
+html {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  background-color: #FFFFFF;
+  color: #000000;
+  text-align: left;
+}
+h3 {
+  padding: 0;
+}
+#flow {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: baseline;
+}
+#header {
+	padding-top: 0.3rem;
+	flex: 2 0px;
+}
+.title {
+    margin: 0.1rem 1rem 0.8rem 0.5rem;
+    font-size: 2rem;
+}
+#logo {
+    float: left;
+    padding: 0 1rem 0 1rem
+}
+overrider .fc-state-default {
+    background-color:white !important;
+    text-shadow:none;
+}
+.comp-full-calendar {
+    padding: 20px;
+    background: #fff;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.fc-state-default {
+  /* non-theme */
+  border: 1px solid;
+  background-color: white;
+  background-image: none; }
+.actions {
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
+.actions .button {
+    border: 2px solid #52BDDF;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 0.5rem 1.1rem 0.5rem 1.1rem;
+    background-color: #FFFFFF;
+    margin: 1rem 0 2rem 1rem;
+    cursor: pointer;
+    font-size: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: #52BDDF;
+}
+.actions .button:hover{
+    background-color: #52BDDF;
+    color: #FFFFFF;
+}
+
+@media (max-width: 605px) {
+	#flow {
+		flex-flow: column wrap;
+		align-items: flex-start;
+	}
+}
+
+</style>
 
 <script>
 import 'fullcalendar/dist/fullcalendar.css'
@@ -75,50 +153,3 @@ export default {
     }
 }
 </script>
-
-<style>
-.title {
-    margin: 0 0 0.7rem 0;
-    font-size: 2rem;
-}
-#logo {
-    float: left;
-    padding: 0 1rem 0 1rem
-}
-#overrider .fc-state-default {
-    background-color:white !important;
-    text-shadow:none;
-}
-.comp-full-calendar {
-    padding: 20px;
-    background: #fff;
-    max-width: 960px;
-    margin: 0 auto;
-}
-
-.fc-state-default {
-  /* non-theme */
-  border: 1px solid;
-  background-color: white;
-  background-image: none; }
-.actions {
-    margin-bottom: 1rem;
-}
-.actions .button {
-    border: 2px solid #52BDDF;
-    box-sizing: border-box;
-    border-radius: 10px;
-    padding: 0.5rem 2.5rem 0.5rem 0.5rem;
-    background-color: #FFFFFF;
-    margin: 1rem 0 1rem 1rem;
-    cursor: pointer;
-    font-size: 1rem;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    color: #52BDDF;
-}
-.actions .button:hover{
-    background-color: #52BDDF;
-    color: #FFFFFF;
-}
-</style>
