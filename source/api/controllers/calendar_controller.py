@@ -6,10 +6,10 @@ Defines the controlling methods for the various calendar endpoints.
 """
 from flask_restful import reqparse
 from models import Calendar, BaseModel
-from requests import Responses, enlang
+from responses import Responses, enlang
 import uuid
 from datetime import datetime, timedelta
-from controllers import oauth
+import controllers.oauth_controller as oauth
 from peewee import DoesNotExist
 from playhouse.shortcuts import model_to_dict
 
@@ -204,10 +204,10 @@ class CalendarController():
 				# n is the number of events in a given day, to O(1). This is because we will
 				# execute 1 SQL query rather than `n` SQL queries.
 				free_appointments.append({
-					calendar: cal,
-					author: email,
-					block_start: cbs
-					block_end: next_block
+					"calendar": cal,
+					"author": email,
+					"block_start": cbs,
+					"block_end": next_block
 				})
 			
 				# Update the current start block

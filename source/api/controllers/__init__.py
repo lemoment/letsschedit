@@ -1,4 +1,4 @@
 from .calendar_controller import CalendarController
-import .oauth_controller as oauth
+from .oauth_controller import oauth
 
 __all__ = ["CalendarController", "oauth"]
