@@ -51,8 +51,8 @@ class CalendarController():
 			interval = 1
 
 			# Round the start and end times to the closest interval
-			start = start - datetime.timedelta(minutes=start.minute % interval, seconds=0, microseconds=0)
-			end = end - datetime.timedelta(minutes=end.minute % interval, seconds=0, microseconds=0)
+			start = CalendarController._intervalize(interval, start)
+			end = CalendarController._intervalize(interval, end)
 	
 			# Ensure that this operation happens atomically, as in nothing else is
 			# happening when we create a new entry
@@ -69,6 +69,7 @@ class CalendarController():
 			# Return a jsonified version of the new calendar
 			return Responses.success(enlang.CAL_CREATE_SUCCESS, calendar=CalendarController._serialize(cal))
 		except Exception as e:
+			print(e)
 			# Return a "tisk-tisk" JSON error
 			return Responses.failure(enlang.CAL_CREATE_FAILURE)
 
@@ -107,12 +108,15 @@ class CalendarController():
 			provider =  args['provider']
 			events = args['events']
 			flag = True
-			
+			email = "eliasfgabriel@gmail.com"
+			author = "Elias Gabriel"
+	
 			# Verify the token with the right provider
-			if !flag and provider == "Google":
+			if not flag and provider == "Google":
 				email = oauth.veriauth_google(token)
 
 			if flag:
+				then = datetime.now()
 				# Sync the calendar appointments with voodoo majyc
 				CalendarController._handle_sync(cal, email, author, events)
 				# If it actually worked, send the success JSON
@@ -124,8 +128,16 @@ class CalendarController():
 			# The given calendar does not exist, return the appropriate error
 			return Responses.failure(enlang.CAL_GET_FAILURE)
 		except Exception as e:
+			print(e)
 			# If something is wrong with the request, send an error
 			return Responses.failure(enlang.CAL_SYNC_FAILURE)
+
+
+	@classmethod
+	def _intervalize(cls, interval, dt):
+		""" Rounds the given datetime to the given minute interval. Second and microseconds
+		are chopped off, and minutes are rounded to the nearest possible chunk. """
+		return dt - timedelta(minutes=dt.minute % interval, seconds=dt.second, microseconds=dt.microsecond)
 
 
 	@classmethod
@@ -232,5 +244,5 @@ class CalendarController():
 		# Wrap it all in a transaction because we want the data switch to be as quick as possible
 		with BaseModel.get_database().atomic():
 			# Ahh! Delete all the existing calendar events and create all the new ones
-			Appointment.delete().where(Appointment.email == email)
+			Appointment.delete().where(Appointment.email == email).execute()
 			Appointment.insert_many(free_appointments).execute()
