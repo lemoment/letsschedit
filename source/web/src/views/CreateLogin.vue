@@ -167,8 +167,10 @@ export default {
   name: 'CreateLogin',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
     }
+  },
+  props: {
+    uuid: String,
   },
   methods: {
     login () {
@@ -182,7 +184,6 @@ export default {
         console.log('You are already logged in,', this.$getUserData().firstName)
         this.$router.push('create-event')
       }
-      
     },
     getcal () {
       var date = new Date();

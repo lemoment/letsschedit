@@ -7,14 +7,18 @@
   "scripts": {
     "dev": "parcel index.html",
     "lint": "eslint --ext .js,.vue src",
-    "build": "parcel build index.html -d ../dist/"
+    "build": "parcel build index.html -d ../dist/",
+    "serve": "parcel serve index.html --https"
   },
   "keywords": [],
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "jquery": "^3.4.1",
     "moment": "^2.24.0",
     "vue": "^2.6.10",
+    "vue-full-calendar": "^2.7.0",
     "vue-gapi": "0.0.10",
     "vue-hot-reload-api": "^2.3.3",
     "vue-router": "^3.0.6"

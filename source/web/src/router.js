@@ -10,19 +10,24 @@ Vue.use(Router)
 const routes = [
   {
     path: '/',
-    component: CreateLogin
+    component: CreateLogin,
   },
   {
     path: '/create-event',
-    component: CreateEvent
+    component: CreateEvent,
   },
   {
     path: '/cal',
-    component: Calendar
+    redirect: '/'
+  },
+  { path: '/cal/:uuid',
+    component: Calendar,
   }
 ]
 
-export default new Router({
+const router =  new Router({
   mode: 'history',
   routes
 })
+
+export default router
