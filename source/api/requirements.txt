@@ -3,4 +3,5 @@ Flask-RESTful
 python-dotenv
 peewee
 PyMySQL
-iso8601
+requests
+google-auth

@@ -34,7 +34,7 @@ if __name__ == "__main__":
 	finally:
 		conn.close()
 
-	print("creating databales tables based on peewee data models")
+	print("creating tables based on peewee data models")
 	# Connect to the new database and create the tables
 	db = BaseModel._meta.database
 	db.init(database, **params)

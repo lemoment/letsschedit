@@ -22,5 +22,6 @@ CAL_GET_FAILURE = "No calendar exists with the given identifier."
 CAL_GET_SUCCESS = "Successfully fetched a calendar with the given UUID!"
 
 # Sync calendar
+SYNC_INVALID_PROVIDER = "The calendar provider is not supported. Currently supported calendar providers: Google."
 CAL_SYNC_FAILURE = "Unable to sync calendar events. Did you send data correctly?"
 CAL_SYNC_SUCCESS = "Successfully synced the provided events to the calendar!"
