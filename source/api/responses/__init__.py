@@ -14,11 +14,11 @@ class Responses():
 	
 	def success(msg, **kwargs):
 		""" Generates a dictionary response with the given message indicating an API success. """
-		return jsonify({ "status": "success", "message": msg, **kwargs })
+		return jsonify({ "status": "success", "message": msg, **kwargs }), 200
 
 	def failure(msg, **kwargs):
 		""" Generates a dictionary response with the given message indicating an API failure. """
-		return jsonify({ "status": "failure", "message": msg, **kwargs })
+		return jsonify({ "status": "failure", "message": msg, **kwargs }), 400
 
 
 class ISOAwareEncoder(JSONEncoder):

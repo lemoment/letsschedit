@@ -2,7 +2,7 @@
 Hosts the main application, routing endpoints to their desired controller.
 
 @author: Elias Gabriel
-@revision: v1.3
+@revision: v1.4
 """
 from os import getenv as env
 from flask import Flask, render_template, request
@@ -45,7 +45,7 @@ def _db_close(exc):
 def _request_failed(e):
 	""" Displays an error page if something goes wrong somewhere, either on purpose or
 	accidentally. Error message and codes are automatically passed to the status page. """
-	return render_template("status.html", name=e.name, message=e.description, code=e.code)
+	return render_template("status.html", name=e.name, message=e.description, code=e.code), e.code
 
 @app.after_request
 def add_cors_headers(response):
