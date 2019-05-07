@@ -7,7 +7,6 @@ Handles the verification of calendar sync requests from Google and Outlook.
 from google.oauth2 import id_token
 from google.auth.transport import requests
 from os import getenv
-from flask import abort
 
 
 class oauth():
@@ -17,7 +16,7 @@ class oauth():
 		""" Verifies the allegedly authenticated Google user by submitted token. If the
 		authentication is truthful, the user's email address is returned. """
 		# Verify the oauth token with Google
-		idinfo = id_token.verify_oauth2_token(token, requests.Request(), __GOOGLE_SECRET)
+		idinfo = id_token.verify_oauth2_token(token, requests.Request(), oauth.__GOOGLE_SECRET)
 
 		# Ensure that the cerificate issuer is Google, to prevent forgery
 		if idinfo['iss'] not in ['accounts.google.com', 'https://accounts.google.com']:

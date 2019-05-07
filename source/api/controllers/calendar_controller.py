@@ -9,7 +9,7 @@ from models import *
 from responses import Responses, enlang
 import uuid
 from datetime import datetime, timedelta
-import controllers.oauth_controller as oauth
+from controllers.oauth_controller import oauth
 from peewee import DoesNotExist
 from playhouse.shortcuts import model_to_dict
 from math import floor, ceil
@@ -122,10 +122,12 @@ class CalendarController():
 			else:
 				# If a request is sent with an invalid provider, throw an error
 				return Responses.failure(enlang.SYNC_INVALID_PROVIDER)
-		except DoesNotExist:
+		except DoesNotExist as e:
+			print(e)
 			# The given calendar does not exist, return the appropriate error
 			return Responses.failure(enlang.CAL_GET_FAILURE)
 		except Exception as e:
+			print(e)
 			# If something is wrong with the request, send an error
 			return Responses.failure(enlang.CAL_SYNC_FAILURE)
 
