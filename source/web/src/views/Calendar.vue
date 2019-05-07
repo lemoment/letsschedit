@@ -25,9 +25,16 @@ html {
   color: #000000;
   text-align: left;
 }
-h3 {
+h3{
   padding: 0;
 }
+
+h2 {
+    padding: 0;
+    margin-left: 1rem;
+    padding-top: 1rem;
+}
+
 #flow {
 	display: flex;
 	flex-flow: row nowrap;
@@ -62,7 +69,48 @@ overrider .fc-state-default {
   /* non-theme */
   border: 1px solid;
   background-color: white;
-  background-image: none; }
+  background-image: none;
+  color: #52BDDF;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+
+/* Shift the calendar button over from the edges */
+.fc-view, .fc-view > table {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.fc-unthemed td.fc-today {
+    background-color: white;
+}
+
+/* Shift the first arrow button left 1rem */
+.fc .fc-button-group > :first-child {
+    margin-left: 1rem;
+}
+
+/* Shift the "day Button" right 1rem */
+.fc .fc-agendaDay-button{
+    margin-right: 1rem;
+}
+
+/* Change active button color */
+.fc-toolbar .fc-state-active {
+    color: white;
+    background-color: #52BDDF;
+    border-color: #52BDDF;
+    font-family: Montserrat, sans-serif;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+/*Change the event color*/
+.fc-event, .fc-event-dot {
+    background: #52BDDF;
+    opacity: 1;
+}
+
 .actions {
     margin-bottom: 1rem;
     margin-right: 1rem;
