@@ -165,13 +165,11 @@ export default {
             config: {
                 height: "auto",
                 editable: false,
+                timeZone: 'local',
             },
+            start: "",
+            end: "",
         }
-    },
-    props: {
-        uuid: String,
-        start: String,
-        end: String,
     },
     methods: {
         mounted () {
@@ -202,9 +200,10 @@ export default {
             if (this.$isAuthenticated() !== true) {
                 this.$login()
             } else if (this.$isAuthenticated() == true) {
+                console.log("sync time!")
                 var vm = this;
-
-                this.getcal() 
+                this.getBackend(this.$route.params.uuid)
+                this.getcal(vm.start,vm.end)
                 this.gettoken()
 
                 let data = {}
@@ -261,7 +260,27 @@ export default {
                 vm.$login()
             }
         },
-        getcal () {
+        getBackend(uuid) {
+            // push data to the backend
+            var vm = this;
+            // only want to sync if auth is successful
+            if (vm.$isAuthenticated() == true) {
+                // push current user cal data to backend
+                axios.get("http://127.0.0.1:5000/cal/" + uuid,
+                         {headers: {"Content-Type": "application/json"}})
+                    .then(r => {
+                        console.log("fetch start and end")
+                        vm.backendres = r
+                        vm.start = r.data.calendar.start_date
+                        vm.end = r.data.calendar.end_date
+                    })
+                    .catch(e => console.log(e));
+            } else {
+                // attempt login
+                vm.$login()
+            }
+        },
+        getcal (start, end) {
             // TODO set min/max based on calendar info from backend get cal
             // get freebusy information from google of 
             // current user's primary calendar
@@ -271,8 +290,10 @@ export default {
 
             this.$getGapiClient().then(gapi => {
                 gapi.client.calendar.freebusy.query({
-                'timeMin': (new Date()).toISOString(),
-                'timeMax': (date.toISOString()),
+                // 'timeMin': (new Date()).toISOString(),
+                // 'timeMax': (date.toISOString()),
+                'timeMin': start,
+                'timeMax': end,
                 "items": [
                     {
                     "id": 'primary'
@@ -280,6 +301,7 @@ export default {
                 ]
                 }).then(function(response) {
                     vm.results = response.result
+                    console.log(response)
             })})
         },
         gettoken () {
