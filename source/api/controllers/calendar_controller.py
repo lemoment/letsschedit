@@ -110,7 +110,7 @@ class CalendarController():
 	
 			# Verify the token with the right provider
 			if provider == "Google":
-				email = oauth.veriauth_google(token)
+				email, author = oauth.veriauth_google(token)
 				flag = True
 
 			if flag:
