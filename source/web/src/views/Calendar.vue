@@ -183,7 +183,6 @@ export default {
             
             // get the current uuid from the url
             this.currUuid = this.$route.params.uuid
-            console.log("updated uuid!", this.currUuid)
 
             // pull the backend on component mount/update
             // based on uuid found on creation.
@@ -220,21 +219,18 @@ export default {
                     data.events.push(ev)
                 });
                 
-                // log data output
-                console.log(JSON.stringify(data))
-
                 // push to backend
-                this.syncBackend(vm.$route.params.uuid, data)
-
+                this.syncBackend(this.$route.params.uuid, data)
+                
                 // retreive from the backend and update cal
                 // it should have updated vm.backendres with the response
-                vm.backendres.calendar.appointsments.forEach(element => {
-                    let content = {}
-                    content.start = element.start_time
-                    content.end =  element.end_time
-                    content.title = element.name
-                    vm.events.push()
-                })
+                // this.backendres.data.calendar.appointments.forEach(element => {
+                //     let content = {}
+                //     content.start = element.start_time
+                //     content.end =  element.end_time
+                //     content.title = element.name
+                //     vm.events.push()
+                // })
 
                 // should rerender automatically
             }
@@ -244,17 +240,22 @@ export default {
             var vm = this;
             // only want to sync if auth is successful
             if (vm.$isAuthenticated() == true) {
-
                 // push current user cal data to backend
-                axios.put("http://127.0.0.1:5000/cal/" + toString(uuid) + "/sync",
-                         data,
-                         {
-                            headers: {"Content-Type": "application/json"}
-                        }) 
-                    .then(r => console.log(vm.backendres = response))
+                axios.post("http://127.0.0.1:5000/cal/" + uuid + "/sync", data,
+                         {headers: {"Content-Type": "application/json"}})
+                    .then(r => {
+                        console.log(vm.backendres)
+                        vm.backendres = r
+                        vm.events = []
+                        vm.backendres.data.calendar.appointments.forEach(element => {
+                            let content = {}
+                            content.start = element.start_time
+                            content.end =  element.end_time
+                            content.title = element.name
+                            vm.events.push(content)
+                        })
+                    })
                     .catch(e => console.log(e));
-                
-                console.log("sync happening!")
             } else {
                 // attempt login
                 vm.$login()
@@ -279,7 +280,6 @@ export default {
                 ]
                 }).then(function(response) {
                     vm.results = response.result
-                    // console.log("google pull success!")
             })})
         },
         gettoken () {
