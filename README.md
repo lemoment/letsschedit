@@ -6,6 +6,8 @@ Consider a situation where a student is working on a team project and needs to c
 
 Enter Let’s Sched It, a free service which allows people to schedule meetings with only a link and a quick click to log in. Let's Sched It helps you find the best time for a group to meet, conveniently. Instead of making users input their availabilities, we utilize Google's and Outlook's APIs in order to connect users' calendars and import their events, saving them the time they’d spend texting and cross-referencing.
 
+Watch our pitch: https://www.youtube.com/watch?v=6OU7aDdcucE
+
 > Created by Elias Gabriel, Maalvika Bhat, Dieter Brehm, and Riya Aggarwal.
 
 
