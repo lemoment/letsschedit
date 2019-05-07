@@ -224,7 +224,7 @@ export default {
                 console.log(JSON.stringify(data))
 
                 // push to backend
-                syncBackend(vm.$route.params.uuid, data)
+                this.syncBackend(vm.$route.params.uuid, data)
 
                 // retreive from the backend and update cal
                 // it should have updated vm.backendres with the response
