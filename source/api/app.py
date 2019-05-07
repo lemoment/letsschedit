@@ -9,6 +9,7 @@ from flask import Flask, render_template, request
 from werkzeug.exceptions import HTTPException
 from models import BaseModel
 from controllers import *
+from responses import ISOAwareEncoder
 
 
 ##
@@ -19,6 +20,7 @@ from controllers import *
 ##
 
 app = Flask("letsschedit")
+app.json_encoder = ISOAwareEncoder
 db = BaseModel.get_database()
 db.init(
 	env('DATABASE'),

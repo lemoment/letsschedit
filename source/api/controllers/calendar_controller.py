@@ -69,7 +69,6 @@ class CalendarController():
 			# Return a jsonified version of the new calendar
 			return Responses.success(enlang.CAL_CREATE_SUCCESS, calendar=CalendarController._serialize(cal))
 		except Exception as e:
-			print(e)
 			# Return a "tisk-tisk" JSON error
 			return Responses.failure(enlang.CAL_CREATE_FAILURE)
 
@@ -128,7 +127,6 @@ class CalendarController():
 			# The given calendar does not exist, return the appropriate error
 			return Responses.failure(enlang.CAL_GET_FAILURE)
 		except Exception as e:
-			print(e)
 			# If something is wrong with the request, send an error
 			return Responses.failure(enlang.CAL_SYNC_FAILURE)
 
@@ -152,21 +150,23 @@ class CalendarController():
 
 		# For each appointment
 		for appt in iappts:
-			# Get the author's name
+			# Get the author's name and email
 			author = appt.author
+			email = appt.email
 			# Convert the start and end blocks to times
 			s_offset = (appt.block_start - 1) * interval
 			e_offset = appt.block_end * interval
 			# Adjust the start time by the offset minutes to find the region end and starts
 			start_time = sd + timedelta(hours=0, minutes=s_offset, seconds=0, microseconds=0)
 			end_time = sd + timedelta(hours=0, minutes=e_offset, seconds=0, microseconds=0)
-			
+	
 			# Add the appointment, as a dict, to the array to be serialized
-			appts.append({ "name": author, "start_time": start_time, "end_time": end_time })
+			appts.append({ "name": author, "email": email, "start_time": start_time, "end_time": end_time })
 
-		cal = model_to_dict(model, exclude=[ Calendar.appointments, Calendar.idx ])
+		# Convert the calendar to what we want
+		cal = model_to_dict(model, exclude=[ Calendar.idx, Calendar.appointments, Calendar.created_at ])
 		cal['appointments'] = appts
-
+	
 		return cal
 
 
