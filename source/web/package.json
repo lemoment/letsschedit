@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "parcel index.html",
     "lint": "eslint --ext .js,.vue src",
-    "build": "parcel build index.html -d ../dist/"
+    "build": "parcel build index.html -d ../dist/",
+    "serve": "parcel serve index.html --https"
   },
   "keywords": [],
   "license": "ISC",
