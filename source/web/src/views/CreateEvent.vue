@@ -164,11 +164,22 @@ export default {
         event_name: '',
         start_date: '',
         end_date: ''
+      },
+      calendar: {
+        uuid: "",
+        start: "",
+        end: "",
       }
     }
   },
   methods: {
+    created() {
+      if (this.$isAuthenticated() !== true) {
+        this.$router.push('/')
+      }
+    },
     schedit() {
+      var vm = this;
       if (this.$isAuthenticated() == true) {
         this.event.event_name = this.event.name
         
@@ -185,10 +196,14 @@ export default {
 
         axios.put("http://127.0.0.1:5000/create/cal", data,
                   {headers: {"Content-Type": "application/json"}}) 
-              .then(r => console.log(r))
+              .then(r => {
+                vm.calendar.uuid = r.data.calendar.uuid
+                vm.calendar.start = r.data.calendar.start_date
+                vm.calendar.end = r.data.calendar.end_date
+                console.log(vm.calendar.uuid, vm.calendar.start,vm.calendar.end, '/cal/' + vm.calendar.uuid)
+                vm.$router.push('/cal/' + vm.calendar.uuid)
+              })
               .catch(e => console.log(e));
-        console.log("stuff happening!")
-        this.$router.push('cal')
       }
     }
   }

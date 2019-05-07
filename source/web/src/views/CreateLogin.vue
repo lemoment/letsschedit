@@ -167,8 +167,10 @@ export default {
   name: 'CreateLogin',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
     }
+  },
+  props: {
+    uuid: String,
   },
   methods: {
     login () {
