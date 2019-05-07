@@ -1,20 +1,21 @@
+<img src="/documentation/logo_20190419.png" width="128">
+
+
 # LetsSchedIt
-We wanted to make scheduling easier. So we created Let’s Sched It, a free service that helps you find the best time for a group to meet, conveniently. Instead of making users input their availability, we utilize Google and Outlook APIs in order to connect user’s calendars and import their events, saving them the time they’d spent cross-referencing.  
+Consider a situation where a student is working on a team project and needs to coordinate with their classmates. The group members have their calendars set up using a service like Google or Outlook, but have been texting back and forth to share their free times. It's hectic, and messages are getting lossed or glanced over constantly.
 
-Consider a situation where a student is working on a team project and needs to coordinate with their classmates. The group all has their calendars setup using a service like Google Calendars but has been texting back and forth sharing their free times, only to get lost in the fray. Enter Let’s Sched It, which allows lets people schedule meeting with only a calendar link and a quick click to log in.
-
-![Mockup](documentation/mockups/Desktop-Home-LeavesHalf.png)
+Enter Let’s Sched It, a free service which allows people to schedule meetings with only a link and a quick click to log in. Let's Sched It helps you find the best time for a group to meet, conveniently. Instead of making users input their availabilities, we utilize Google's and Outlook's APIs in order to connect users' calendars and import their events, saving them the time they’d spend texting and cross-referencing.
 
 > Created by Elias Gabriel, Maalvika Bhat, Dieter Brehm, and Riya Aggarwal.
 
 
 ## Installation and Usage
-[Installation Instructions](Installation.md)
+To setup and install the entire application stack, please read the separate [installation](/INSTALLATION.md) tutorial.
 
 ## Demo
 Let’s walk through a typical event creator’s path using Let’s Sched It.
-First, they are greeted by our homepage:  
-![Desktop-view](documentation/mockups/Desktop-Home-LeavesHalf.png)  
+First, they are greeted by our homepage:
+![Desktop-view](documentation/mockups/Desktop-Home-LeavesHalf.png)
 After logging in, the user then enters details about the name, date and time of the event they are creating in a nice, easy-to-consume format.  
 ![create-view](documentation/create-view.png)  
 Next, it’s time to visualize the user’s schedule, imported from their account of choice:  
