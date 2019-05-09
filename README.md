@@ -23,13 +23,13 @@ MariaDB is required to run the RESTful application. Installation varies dependin
   $ su -
   $ pacman -S mariadb
   $ mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-  $ '/usr/bin/mysql_secure_installation'
   $ systemctl start mariadb.service
+  $ '/usr/bin/mysql_secure_installation'
   $ systemctl enable mariadb.service
 ```
 
-#### macOS
-You're on your own, but I'm very sorry.
+#### macOS and Windows
+You're on your own, since we didn't figure out a clean way to install MariaDB on these machines. If you go this route, I'm very sorry.
 
 ### Dependencies
 To install the all required packages, you can simply run `python setup.py`. It will automatically check your system environment and install all the necessary Node.js and Python packages.
@@ -51,10 +51,12 @@ To install the all required packages, you can simply run `python setup.py`. It w
 * python-dotenv
 * peewee
 * PyMySQL
+* requests
+* google-auth
 
 ## Usage
 You can start the frontend or backend servers by changing into the appropriate directory and launching the application with the correct program.
 * Frontend: `npm run dev`
 * Backend: `cd source/api && python app.py`
 
-> Created by Elias Gabriel, Maalvika Bhat, Dieter Brehm, and Riya Aggarwal.
+> Created with :heartbeat: by Elias Gabriel, Maalvika Bhat, Dieter Brehm, and Riya Aggarwal.
