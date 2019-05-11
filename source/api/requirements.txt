@@ -1,3 +1,4 @@
+python-dotenv
 flask
 Flask-RESTful
 python-dotenv

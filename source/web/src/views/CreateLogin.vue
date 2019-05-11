@@ -1,191 +1,157 @@
 <template>
-<div class="container">
-      <header class="page-header">
-      </header>
-      <div>
-         <h1 class="title" style="line-height:120px" >LET'S<br />SCHED<br />IT.</h1>
-         <h2 class="title2" >Create Event</h2>
-       <div class="page-content">
-           <form class="form-inline" @submit.prevent="login()">
-             <button type="submit" >Login with Google</button>
-              <br/>
-              <button type="submit" >Login with Outlook</button>
-           </form>
-           <br />
-           <div class="footer">
-              <h3 style="align-self: flex-start;" >Built<br />with ❤️ <br />by Oliners</h1>
-           </div>
-           <div class="w3-display-container">
-             <img src="../assets/leaves.jpg" alt="Leaves">
-             <div class="w3-display-topleft w3-container"></div>
-           </div>
-       </div>
-   </template>
+	<div class="container">
+		<div class="inner-container">
+			<div id="wrapper">
+				<h1 id="title">LET'S<br />SCHED<br />IT.</h1>
+				<h2 id="message">Login to create and sched<br />a new event!</h2>
+	
+				<div class="login-button" @click="login">
+					<div style="height:50px;width:240px;" class="abcRioButton abcRioButtonBlue">
+						<div class="abcRioButtonContentWrapper">
+							<div class="abcRioButtonIcon" style="padding:15px">
+								<div style="width:18px;height:18px;">
+									<img src="//developers.google.com/identity/images/g-logo.png" width="18px" height="18px">
+								</div>
+							</div>
+
+							<span style="font-size:16px;line-height:48px;" class="abcRioButtonContents">
+								<span>Sign in with Google</span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+			<div id="footer">
+				<h3>Built with 💖 by Oliners.</h3>
+			</div>
+		</div>
+	</div>
+</template>
 
 
 <!-- CSS -->
 <style scoped>
-html {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  background-color: #FFFFFF;
-  color: #000000;
-  text-align: left;
-}
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-.page-content{
-  background-color:#FFFFFF;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  padding: 30px;
-  align-items: left;
-}
-h1 {
-    font-size: 7rem;
-		text-align: left;
-		font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-		color: #000000;
-		padding-left: 30px;
-    position: fixed;
-}
-h2 {
-    font-size: 2rem;
-    text-align: left;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    padding-left: 30px;
-    color: #000000;
-    position: fixed;
-}
-h3 {
-    font-size: 1rem;
-		text-align: left;
-		font-family: 'Montserrat', sans-serif;
-		font-weight: bold;
-		padding-left: 30px;
-    color: #000000;
-    position: fixed;
-}
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 .container {
-  display: flex;
-
-  flex-wrap: flex-end;
+	background-image: url("../assets/leaves.jpg");
+	background-size: cover;
+	background-position: right;
+	background-repeat: no-repeat;
+	height: 100%;
 }
 
-.form-inline {
-  position: fixed;
-  left: 35px;
-  top: 480px;
- }
-
-.form-inline label {
-  margin: 0 0 0 0;
-  font-size: 3rem;
-  text-align: center;
-  text-align: left;
-  padding-left: 10px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  color: #000000;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+.inner-container {
+	width: min-content;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	padding-left: 2rem;
+	padding-right: 25rem;
+	background: white;
 }
 
-.form-inline button {
-  border: 2px solid #000000;
-  box-sizing: border-box;
-  border-radius: 10px;
-  background-color: #FFFFFF;
-  cursor: pointer;
-  display: block;
-  font-size: 2rem;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  color: #000000;
-  position: sticky;
-
-}
-.form-inline button:hover {
-  background-color: #C0C0C0;
-  color: #FFFFFF;
-}
-.title {
-    position: fixed;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-.title2 {
-    position: fixed;
-    margin-top: auto;
-    margin-bottom: auto;
-    left: 7px;
-    top: 420px;
-}
-.footer {
-  width: 100%;
-  height: 120px;
-  border-radius: 3px;
-  color: #ffffff;
-  position: fixed;
-  left: 10px;
-  top:610px;
-  margin-left: auto;
-}
-.w3-display-container {
-  padding-right:0px;
-  position: fixed;
-  right: 0rem;
-  top: 0px;
-  width:50%;
-  height: auto;
-  max-width: 700px
+#wrapper {
+	flex: 1 0 auto;
 }
 
-@media (max-width: 919px) {
-    .w3-display-container {
-        width:30%;
-    }
+#title {
+	line-height: 7rem;
+	margin: 4rem 1rem 0 0;
 }
 
-@media (max-width: 640px) {
-    .w3-display-container {
-        display: none;
-    }
+#message {
+	font-size: 1.75rem;
+	margin-left: 0;
 }
 
+.login-button {
+	margin: 2rem 0;
+}
+
+.abcRioButton{
+    border-radius:1px;
+    box-shadow:0 2px 4px 0 rgba(0,0,0,.25);
+    box-sizing:border-box;
+    transition:background-color .218s,border-color .218s,box-shadow .218s;
+    background-color:#fff;
+    background-image:none;
+    color:#262626;
+    cursor:pointer;
+    outline:none;
+    overflow:hidden;
+    position:relative;
+    text-align:center;
+    vertical-align:middle;
+    white-space:nowrap;
+    width:auto
+}
+.abcRioButton:hover{
+    box-shadow:0 0 3px 3px rgba(66,133,244,.3)
+}
+.abcRioButtonBlue{
+    background-color:#4285f4;
+    border:none;
+    color:#fff
+}
+.abcRioButtonBlue:hover{
+    background-color:#4285f4
+}
+.abcRioButtonBlue:active{
+    background-color:#3367d6
+}
+.abcRioButtonIcon{
+    float:left
+}
+.abcRioButtonBlue .abcRioButtonIcon{
+    background-color:#fff;
+    border-radius:1px
+}
+.abcRioButtonSvg {
+    display:block
+}
+.abcRioButtonContents{
+    letter-spacing:.21px;
+    margin-left:6px;
+    margin-right:6px;
+    vertical-align:top;
+    font:500 14px Roboto,arial,sans-serif
+}
+.abcRioButtonContentWrapper{
+    height:100%;
+    width:100%
+}
+.abcRioButtonBlue .abcRioButtonContentWrapper{
+    border:1px solid transparent
+}
+
+#footer {
+	border-top: black solid 1px;
+	width: 20rem;
+	flex-shrink: 0;
+	margin: 2rem 0;
+}
 </style>
 
 <script>
 export default {
   name: 'CreateLogin',
-  data () {
-    return {
-    }
+	components: { },
+	data() {
+    return { }
   },
   props: {
     uuid: String,
-  },
+	},
   methods: {
-    login () {
-      // Handle google login
-      
-      if (this.$isAuthenticated() !== true) {
-        this.$login()
-      }
-
-      if (this.$isAuthenticated() == true) {
-        console.log('You are already logged in,', this.$getUserData().firstName)
-        this.$router.push('create-event')
-      }
+    login() {
+			this.$getGapiClient().then(gapi => gapi.auth2.getAuthInstance().signIn().then(() => {
+				console.log('Welcome to the future,', this.$getUserData().firstName)
+				this.$router.push('create-event');
+			}));
     },
-    getcal () {
+    getcal() {
       var date = new Date();
       date.setDate(date.getDate() + 7);
 
@@ -193,15 +159,9 @@ export default {
         gapi.client.calendar.freebusy.query({
           'timeMin': (new Date()).toISOString(),
           'timeMax': (date.toISOString()),
-          "items": [
-            {
-              "id": 'primary'
-            }
-          ]
-        }).then(function(response) {
-          console.log(response.result)
-        })})
+          "items": [{ "id": 'primary' }]
+        })
+			});
     }
-  }
-}
+  }}
 </script>

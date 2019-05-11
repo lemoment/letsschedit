@@ -5,10 +5,9 @@
   "author": "Dieter Brehm, Elias Gabriel, Riya Aggarwal, Maalvika Bhat",
   "private": true,
   "scripts": {
-    "dev": "parcel index.html",
+    "dev": "parcel serve index.html --https",
     "lint": "eslint --ext .js,.vue src",
-    "build": "parcel build index.html -d ../dist/",
-    "serve": "parcel serve index.html --https"
+    "build": "parcel build index.html -d ../dist/"
   },
   "keywords": [],
   "license": "ISC",
@@ -17,10 +16,14 @@
     "express": "^4.16.4",
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
+    "normalize.css": "^8.0.1",
+    "parcel-bundler": "^1.12.3",
     "vue": "^2.6.10",
+    "vue-api": "0.0.3",
     "vue-full-calendar": "^2.7.0",
     "vue-gapi": "0.0.10",
     "vue-hot-reload-api": "^2.3.3",
+    "vue-resource": "^1.5.1",
     "vue-router": "^3.0.6"
   },
   "devDependencies": {
@@ -36,7 +39,6 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^4.0.0",
-    "parcel-bundler": "^1.12.3",
     "vue-tachyons": "0.0.7",
     "vue-template-compiler": "^2.6.10"
   }

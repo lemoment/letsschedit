@@ -3,13 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import VueGAPI from 'vue-gapi'
+import VueGoogleAPI from 'vue-gapi'
 import { APITHING, CLIENTTHING } from './secrets'
 import FullCalendar from 'vue-full-calendar'
 import moment from 'moment'
 import axios from 'axios'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 const apiConfig = {
   apiKey: APITHING,
@@ -18,12 +18,12 @@ const apiConfig = {
   scope: 'https://www.googleapis.com/auth/calendar.readonly'
 }
 
-Vue.use(VueGAPI, apiConfig)
-Vue.use(FullCalendar)
+Vue.use(VueGoogleAPI, apiConfig);
+Vue.use(FullCalendar);
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   render: h => h(App)
-})
+});
