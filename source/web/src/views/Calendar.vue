@@ -1,68 +1,72 @@
 <template>
-    <div id="cal">
-      <div id="flow">
-      	<div id="header">
-        	<router-link to="/">
-          		<img src="../assets/clock.png" alt="Clock" id="logo">
-        	</router-link>
-        	<h3 class="title">LET'S SCHED IT</h3>
-    	</div>
-        <div class="actions">
-            <button class="button"  v-on:click="sync()">Sync</button>
-            <button class="button"  v-on:click="logout()">Logout</button>
-        </div>
-      </div>
-        <full-calendar id="overrider" :events="events"
-                       :config="config"></full-calendar>
-    </div>
+  <div class="container">
+		<div id="navbar">
+			<h3 id="title">
+				<router-link to="/">
+					<img src="../assets/clock.png" alt="Clock" id="logo">
+				</router-link>
+				LET'S SCHED IT
+			</h3>
+
+			<div class="actions">
+				<button class="button" @click="sync">Sync</button>
+				<button data-p="this.$isAuthenticated()" class="button" @click="logout">Logout</button>
+			</div>
+		</div>
+
+    <full-calendar id="overrider" :events="events" :config="config"></full-calendar>
+	</div>
 </template>
 
-<style>
-html {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  background-color: #FFFFFF;
-  color: #000000;
-  text-align: left;
-}
-h3{
-  padding: 0;
+<style scoped>
+.container {
+	padding: 0 2rem;
 }
 
-h2 {
-    padding: 0;
-    margin-left: 1rem;
-    padding-top: 1rem;
-}
-
-#flow {
+#navbar {
 	display: flex;
-	flex-flow: row nowrap;
-	justify-content: space-between;
-	align-items: baseline;
+	flex-direction: row;
+	width: 100%;
+	margin-top: 0rem;
+	align-items: center;
 }
-#header {
-	padding-top: 0.3rem;
-	flex: 2 0px;
-    min-width: 23rem
+
+#title {
+	font-size: 2rem;
+	flex: 1 0 auto;
 }
-.title {
-    margin: 0.1rem 1rem 0.8rem 0.5rem;
-    font-size: 2rem;
-}
+
 #logo {
-    float: left;
-    padding: 0 1rem 0 1rem
+	float: left;
+	padding: 0 1rem;
 }
-overrider .fc-state-default {
-    background-color:white !important;
-    text-shadow:none;
+
+.actions {
+	height: min-content;
+	flex-shrink: 1;
+	justify-content: right;
 }
-.comp-full-calendar {
-    padding: 20px;
-    background: #fff;
-    max-width: 960px;
-    margin: 0 auto;
+
+.actions .button {
+	border: 2px solid #52BDDF;
+	box-sizing: border-box;
+	border-radius: 10px;
+	padding: 0.5rem 1.1rem 0.5rem 1.1rem;
+	background-color: #FFFFFF;
+	cursor: pointer;
+	font-size: 1rem;
+	font-weight: bold;
+	color: #52BDDF;
+}
+
+.actions .button:hover{
+	background-color: #52BDDF;
+	color: #FFFFFF;
+}
+
+#overrider .fc-state-default {
+	background-color:white !important;
+  text-shadow:none;
 }
 
 .fc-state-default {
@@ -71,83 +75,50 @@ overrider .fc-state-default {
   background-color: white;
   background-image: none;
   color: #52BDDF;
-  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
 }
 
 /* Shift the calendar button over from the edges */
 .fc-view, .fc-view > table {
-    padding-left: 2rem;
-    padding-right: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
-.fc-unthemed td.fc-today {
-    background-color: white;
+.fc-day.fc-widget-content.fc-today {
+  background-color: white !important;
 }
 
 /* Shift the first arrow button left 1rem */
 .fc .fc-button-group > :first-child {
-    margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 /* Shift the "day Button" right 1rem */
 .fc .fc-agendaDay-button{
-    margin-right: 1rem;
+  margin-right: 1rem;
 }
 
 /* Change active button color */
 .fc-toolbar .fc-state-active {
-    color: white;
-    background-color: #52BDDF;
-    border-color: #52BDDF;
-    font-family: Montserrat, sans-serif;
-    box-shadow: none;
-    text-shadow: none;
+  color: white;
+  background-color: #52BDDF;
+  border-color: #52BDDF;
+  font-family: Montserrat, sans-serif;
+  box-shadow: none;
+  text-shadow: none;
 }
 
 /*Change the event color*/
 .fc-event, .fc-event-dot {
-    background: #52BDDF;
-    opacity: 1;
+  background: #52BDDF;
+  opacity: 1;
 }
 
-.actions {
-    margin-bottom: 1rem;
-    margin-right: 1rem;
-}
-.actions .button {
-    border: 2px solid #52BDDF;
-    box-sizing: border-box;
-    border-radius: 10px;
-    padding: 0.5rem 1.1rem 0.5rem 1.1rem;
-    background-color: #FFFFFF;
-    margin: 1rem 0 2rem 1rem;
-    cursor: pointer;
-    font-size: 2rem;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    color: #52BDDF;
-}
-.actions .button:hover{
-    background-color: #52BDDF;
-    color: #FFFFFF;
-}
-
-@media (max-width: 725px) {
-	#flow {
-		flex-flow: column wrap;
-		align-items: flex-start;
-	}
-    #header {
-        min-width: 22rem
-    }
-    .actions .button {
-        font-size: 1.5rem;
-    }
-}
-
+.fc-unselectable { display: none; }
 </style>
 
+
+<!-- JAVASCRIPT -->
 <script>
 import 'fullcalendar/dist/fullcalendar.css'
 import moment from 'moment'

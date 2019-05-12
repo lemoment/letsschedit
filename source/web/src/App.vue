@@ -9,8 +9,11 @@ export default { name: 'letsschedit' }
 </script>
 
 <style>
-html {
+* {
 	font-family: 'Montserrat', sans-serif;
+}
+
+html {
 	background-color: #FFF;
 	text-align: left;
 }

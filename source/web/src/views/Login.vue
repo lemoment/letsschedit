@@ -1,3 +1,4 @@
+<!-- HTML -->
 <template>
 	<div class="container">
 		<div class="inner-container">
@@ -32,8 +33,6 @@
 
 <!-- CSS -->
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
 .container {
 	background-image: url("../assets/leaves.jpg");
 	background-size: cover;
@@ -48,7 +47,7 @@
 	display: flex;
 	flex-direction: column;
 	padding-left: 2rem;
-	padding-right: 25rem;
+	padding-right: 18rem;
 	background: white;
 }
 
@@ -71,59 +70,65 @@
 }
 
 .abcRioButton{
-    border-radius:1px;
-    box-shadow:0 2px 4px 0 rgba(0,0,0,.25);
-    box-sizing:border-box;
-    transition:background-color .218s,border-color .218s,box-shadow .218s;
-    background-color:#fff;
-    background-image:none;
-    color:#262626;
-    cursor:pointer;
-    outline:none;
-    overflow:hidden;
-    position:relative;
-    text-align:center;
-    vertical-align:middle;
-    white-space:nowrap;
-    width:auto
+	border-radius:1px;
+  box-shadow:0 2px 4px 0 rgba(0,0,0,.25);
+  box-sizing:border-box;
+  transition:background-color .218s,border-color .218s,box-shadow .218s;
+  background-color:#fff;
+  background-image:none;
+  color:#262626;
+  cursor:pointer;
+  outline:none;
+  overflow:hidden;
+  position:relative;
+  text-align:center;
+  vertical-align:middle;
+  white-space:nowrap;
+  width:auto
 }
+
 .abcRioButton:hover{
-    box-shadow:0 0 3px 3px rgba(66,133,244,.3)
+  box-shadow:0 0 3px 3px rgba(66,133,244,.3)
 }
+
 .abcRioButtonBlue{
-    background-color:#4285f4;
-    border:none;
-    color:#fff
+  background-color:#4285f4;
+  border:none;
+  color:#fff
 }
+
 .abcRioButtonBlue:hover{
-    background-color:#4285f4
+  background-color:#4285f4
 }
+
 .abcRioButtonBlue:active{
-    background-color:#3367d6
+  background-color:#3367d6
 }
+
 .abcRioButtonIcon{
-    float:left
+  float:left
 }
+
 .abcRioButtonBlue .abcRioButtonIcon{
-    background-color:#fff;
-    border-radius:1px
+  background-color:#fff;
+	border-radius:1px
 }
-.abcRioButtonSvg {
-    display:block
-}
+
 .abcRioButtonContents{
-    letter-spacing:.21px;
-    margin-left:6px;
-    margin-right:6px;
-    vertical-align:top;
-    font:500 14px Roboto,arial,sans-serif
+  letter-spacing:.21px;
+  margin-left:6px;
+  margin-right:6px;
+  vertical-align:top;
+	font-weight: 500;
 }
+
 .abcRioButtonContentWrapper{
-    height:100%;
-    width:100%
+  height:100%;
+  width:100%
 }
+
 .abcRioButtonBlue .abcRioButtonContentWrapper{
-    border:1px solid transparent
+  border:1px solid transparent
 }
 
 #footer {
@@ -134,6 +139,8 @@
 }
 </style>
 
+
+<!-- JAVASCRIPT -->
 <script>
 export default {
   name: 'CreateLogin',
