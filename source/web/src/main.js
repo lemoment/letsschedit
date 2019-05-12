@@ -3,9 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import VueGoogleAPI from 'vue-gapi'
+import VueGAPI from 'vue-gapi'
 import { APITHING, CLIENTTHING } from './secrets'
-import FullCalendar from 'vue-full-calendar'
 import moment from 'moment'
 import axios from 'axios'
 
@@ -18,8 +17,7 @@ const apiConfig = {
   scope: 'https://www.googleapis.com/auth/calendar.readonly'
 }
 
-Vue.use(VueGoogleAPI, apiConfig);
-Vue.use(FullCalendar);
+Vue.use(VueGAPI, apiConfig);
 
 /* eslint-disable no-new */
 new Vue({
