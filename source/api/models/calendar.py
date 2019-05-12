@@ -17,14 +17,14 @@ from datetime import datetime
 
 
 class Calendar(BaseModel):
-	""" Defines the Calendar model for the database. Table schema is commented above. """
-	idx = BigAutoField()
-	uuid = UUIDField(unique=True)
-	created_at = DateTimeField(default=datetime.utcnow)
-	start_date = DateTimeField()
-	end_date = DateTimeField()
-	interval = IntegerField(default=15)
-	days = CharField(max_length=16, default="su,m,t,w,th,f,sa")
+    """ Defines the Calendar model for the database. Table schema is commented above. """
+    idx = BigAutoField()
+    uuid = UUIDField(unique=True)
+    created_at = DateTimeField(default=datetime.utcnow)
+    start_date = DateTimeField()
+    end_date = DateTimeField()
+    interval = IntegerField(default=15)
+    days = CharField(max_length=16, default="su,m,t,w,th,f,sa")
 
-	class Meta:
-		table_name = "calendars"
+    class Meta:
+	table_name = "calendars"

@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{ name }}</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+	<head>
+		<title>{{ name }}</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+		<link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
 		<style>
 			body{background-color:#FFF;color:#2E2F30;text-align:center;font-family:'Montserrat',sans-serif;margin:0}div.dialog{width:95%;max-width:33em;margin:4em auto 0}div.dialog>div{border:1px solid #CCC;border-right-color:#999;border-left-color:#999;border-bottom-color:#BBB;border-top:#475887 solid 4px;background-color:#fff;padding:7px 12% 0}h1{font-size:100%;color:#475887;line-height:1.5em;font-weight:700}div.dialog>p{margin:0 0 1em;padding:1em;background-color:#F7F7F7;border:1px solid #CCC;color:#666;border-color:#DADADA #999 #999}a{color:#4abee2;font-weight:500}
 		</style>
-  </head>
+	</head>
 
-  <body>
-    <div class="dialog">
-      <div>
+	<body>
+		<div class="dialog">
+			<div>
 				<svg xmlns="http://www.w3.org/2000/svg" version="1" width="190pt" viewBox="0 0 256 256"><path d="M97 30c-16 4-33 14-45 25-5 5-6 8-3 11s6 2 12-3c12-10 24-17 37-21 8-3 10-4 10-8 0-5-3-6-11-4zM151 29c-3 2-4 7-2 9 1 1 5 3 8 3 13 4 26 12 38 22 6 5 10 6 12 3 3-3 2-6-3-11-15-14-46-29-53-26zM114 56a85 85 0 0 0-65 59c-3 12-3 33 0 44 2 9 8 22 13 28l4 5-9 9c-9 9-10 11-7 15 4 4 6 3 15-7l9-9 6 4a77 77 0 0 0 48 15c12 0 15 0 23-2 9-3 21-9 27-14l4-3 5 4 8 8c3 3 8 6 10 6l3-2c4-4 3-6-7-16l-10-9 5-8c10-15 14-29 14-47s-6-35-18-50a87 87 0 0 0-44-28c-10-3-25-3-34-2zm34 14c12 4 20 9 30 18l13 18c5 11 7 19 7 32a71 71 0 0 1-52 68c-9 2-27 2-36 0-19-5-36-19-44-36-6-11-7-18-7-33 0-12 0-14 2-22 9-24 31-43 56-47 8-1 23 0 31 2z"/><path d="M124 98c-3 2-3 41 0 43 2 3 5 3 21 3l17-2c1-3 1-7-1-8-1-2-4-2-14-2h-13v-16c0-15 0-17-2-18-2-2-6-2-8 0z"/></svg>
 				<h1>{{ name }}</h1>
-        <p>{{ message }}</p>
+				<p>{{ message }}</p>
 				<p>Return to <a href="https://letsschedit.com">https://letsschedit.com</a></p>
-        <p>(error code: {{ code }})</p>
-      </div>
-      <p>If you believe this is an error, send an email to <a href="mailto:customerservice@letsschedit.com">customerservice@letsschedit.com</a></p>
-    </div>
-  </body>
+				<p>(error code: {{ code }})</p>
+			</div>
+			<p>If you believe this is an error, send an email to <a href="mailto:customerservice@letsschedit.com">customerservice@letsschedit.com</a></p>
+		</div>
+	</body>
 </html>
