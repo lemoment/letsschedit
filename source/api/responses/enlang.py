@@ -10,7 +10,7 @@ clearer now and eases future scaling.
 @revision: v1.1
 """
 ##
-## MESSAGES
+# MESSAGES
 ##
 
 # Create calendar

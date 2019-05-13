@@ -23,7 +23,6 @@ class CalendarController():
     given the required data.
     """
 
-
     def new():
         """ Accepts an expected JSON body containing the parameters required to define
         a new Calendar. If all verifications pass, a new Calendar is created and its
@@ -52,7 +51,7 @@ class CalendarController():
             # Round the start and end times to the closest interval
             start = CalendarController._intervalize(interval, start)
             end = CalendarController._intervalize(interval, end)
-        
+
             # Ensure that this operation happens atomically, as in nothing else is
             # happening when we create a new entry
             with BaseModel.get_database().atomic():
@@ -64,14 +63,13 @@ class CalendarController():
                     start_date=start,
                     end_date=end
                 )
-                                
+
             # Return a jsonified version of the new calendar
             return Responses.success(enlang.CAL_CREATE_SUCCESS, calendar=CalendarController._serialize(cal))
         except Exception as e:
             # Return a "tisk-tisk" JSON error
             return Responses.failure(enlang.CAL_CREATE_FAILURE)
 
-        
     def get(UUID):
         """ Pulls the given Calendar from the database using its designated UUID. If
         no Calendar is found, the client is redirected to a 404 page indicating that
@@ -120,12 +118,12 @@ class CalendarController():
             else:
                 # If a request is sent with an invalid provider, throw an error
                 return Responses.failure(enlang.SYNC_INVALID_PROVIDER)
-            except DoesNotExist as e:
-                # The given calendar does not exist, return the appropriate error
-                return Responses.failure(enlang.CAL_GET_FAILURE)
-            except Exception as e:
-                # If something is wrong with the request, send an error
-                return Responses.failure(enlang.CAL_SYNC_FAILURE)
+        except DoesNotExist as e:
+            # The given calendar does not exist, return the appropriate error
+            return Responses.failure(enlang.CAL_GET_FAILURE)
+        except Exception as e:
+            # If something is wrong with the request, send an error
+            return Responses.failure(enlang.CAL_SYNC_FAILURE)
 
 
     @classmethod
@@ -197,9 +195,9 @@ class CalendarController():
             # Add the unique busy blocks to the list
             busy_blocks.update(range(block_start, block_end + 1))
 
-            # Find the total number of blocks in the given calendar range
-            total_blocks = ceil((ed - sd).total_seconds() / 60 / interval)
-            blockset = set(range(1, total_blocks + 1))
+        # Find the total number of blocks in the given calendar range
+        total_blocks = ceil((ed - sd).total_seconds() / 60 / interval)
+        blockset = set(range(1, total_blocks + 1))
 
         # Set theory! Only keep the blocks that are not contained within the busy set. Subtracting
         # the sets to give us unique elements yields all the free times! Sort the remaining set
@@ -215,11 +213,11 @@ class CalendarController():
             next_block = current_block
                         
             # If we are not at the end of the line, set the next block
-            if i + 1 < len(free_blocks): next_block = free_blocks[i + 1]
+            if i + 1 < len(free_blocks):  next_block = free_blocks[i + 1]
             
             # Check to see if the current and next blocks are sequential. If they aren't
             # we know that we've reached a gap and need to create an appointment.
-            if next_block - current_block != 1:
+            if next_block - current_block != 1 or (sd + timedelta(minutes=(current_block * interval))).total_seconds() % 86400 == 0:
                 # Don't create an appointment outright, add the data to a list and then create them
                 # in bulk once we are done parsing. This reduces the time complexity from O(n), where
                 # n is the number of events in a given day, to O(1). This is because we will

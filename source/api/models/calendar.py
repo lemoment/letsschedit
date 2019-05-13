@@ -27,4 +27,4 @@ class Calendar(BaseModel):
     days = CharField(max_length=16, default="su,m,t,w,th,f,sa")
 
     class Meta:
-	table_name = "calendars"
+        table_name = "calendars"
