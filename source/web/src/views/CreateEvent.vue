@@ -5,7 +5,7 @@
 			LET'S SCHED IT.
 		</h3>
 
-		<form id="event-form" @submit.prevent="schedit()"> 
+		<form id="event-form"> 
 			<label for="name">Create an event named</label>
 			<input type="text" id="name" name="name" v-model="event.name" placeholder="Name">
 
@@ -23,7 +23,7 @@
        <label>.</label>
 		</form>
 		
-		<button form="event-form" type="submit" class="button" style="display: block;">SCHED IT!</button>
+		<button @click="schedit" type="submit" class="button" style="display: block;">SCHED IT!</button>
   </div>
 </template>
 
