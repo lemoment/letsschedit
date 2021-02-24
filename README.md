@@ -1,4 +1,4 @@
-<img src="/documentation/logo_20190419.png" width="128">
+<img src="documentation/logo_20190419.png" width="128">
 
 
 # LetsSchedIt
